@@ -23,6 +23,7 @@ namespace Plaza
         public MainWindow()
         {
             InitializeComponent();
+            BazaDruzyn baza = new BazaDruzyn();
         }
     }
 }

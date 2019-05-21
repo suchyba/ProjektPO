@@ -63,6 +63,7 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="BazaDruzyn.cs" />
     <Compile Include="Druzyna.cs" />
     <Compile Include="DruzynaDwaOgnie.cs" />
     <Compile Include="DruzynaPrzeciaganieLiny.cs" />
@@ -73,6 +74,7 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Mecz.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
