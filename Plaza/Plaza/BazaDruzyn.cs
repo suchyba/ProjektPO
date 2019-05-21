@@ -25,6 +25,7 @@ namespace Plaza
         {
             listaDruzyn.Remove(listaDruzyn.Where(d => d.GetNazwa() == nazwa).FirstOrDefault());
         }
+        public List<Druzyna> GetListaDruzyn() => listaDruzyn;
         public void GenerujFinaly()
         {
 

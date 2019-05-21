@@ -20,10 +20,17 @@ namespace Plaza
     /// </summary>
     public partial class MainWindow : Window
     {
+        private BazaDruzyn baza;
         public MainWindow()
         {
             InitializeComponent();
-            BazaDruzyn baza = new BazaDruzyn();
+            baza = new BazaDruzyn();
+        }
+
+        private void ZatwierdzButt_Click(object sender, RoutedEventArgs e)
+        {
+            baza.ZglosDruzyne(new Druzyna(NazwaDruzynyTxtBox.Text, int.Parse(RokPowstaniaTxtBox.Text), OpisTxtBox.Text));
+            TestTxtBlock.Text = baza.GetListaDruzyn().FirstOrDefault().GetNazwa() + " " + baza.GetListaDruzyn().FirstOrDefault().GetRokPowstania() + " " + baza.GetListaDruzyn().FirstOrDefault().GetOpis();
         }
     }
 }

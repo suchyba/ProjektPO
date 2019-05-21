@@ -7,6 +7,11 @@
         mc:Ignorable="d"
         Title="Rozgrywki" Height="450" Width="800">
     <Grid>
-        
+        <Button x:Name="ZatwierdzButt" Content="Button" HorizontalAlignment="Left" Margin="300,108,0,0" VerticalAlignment="Top" Width="75" Click="ZatwierdzButt_Click"/>
+        <TextBox x:Name="NazwaDruzynyTxtBox" HorizontalAlignment="Left" Height="23" Margin="99,62,0,0" TextWrapping="Wrap" Text="Nazwa" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="RokPowstaniaTxtBox" HorizontalAlignment="Left" Height="23" Margin="99,109,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Text="2019"/>
+        <TextBox x:Name="OpisTxtBox" HorizontalAlignment="Left" Height="23" Margin="99,164,0,0" TextWrapping="Wrap" Text="Opis" VerticalAlignment="Top" Width="120"/>
+        <TextBlock x:Name="TestTxtBlock" HorizontalAlignment="Left" Margin="439,49,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Height="59" Width="290"/>
+
     </Grid>
 </Window>
