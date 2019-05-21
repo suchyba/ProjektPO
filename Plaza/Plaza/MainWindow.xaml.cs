@@ -30,7 +30,7 @@ namespace Plaza
         private void ZatwierdzButt_Click(object sender, RoutedEventArgs e)
         {
             baza.ZglosDruzyne(new Druzyna(NazwaDruzynyTxtBox.Text, int.Parse(RokPowstaniaTxtBox.Text), OpisTxtBox.Text));
-            TestTxtBlock.Text = baza.GetListaDruzyn().FirstOrDefault().GetNazwa() + " " + baza.GetListaDruzyn().FirstOrDefault().GetRokPowstania() + " " + baza.GetListaDruzyn().FirstOrDefault().GetOpis();
+            TestTxtBlock.Text = TestTxtBlock.Text + "\n" + baza.GetListaDruzyn().LastOrDefault().GetNazwa() + " " + baza.GetListaDruzyn().LastOrDefault().GetRokPowstania() + " " + baza.GetListaDruzyn().LastOrDefault().GetOpis();
         }
     }
 }
