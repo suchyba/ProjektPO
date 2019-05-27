@@ -34,5 +34,13 @@ namespace Plaza
         {
 
         }
+        public void DodajMecz(Mecz m)
+        {
+            listaMeczy.Add(m);
+        }
+        public void RozegrajMecz(int numerMeczu, int w1, int w2)
+        {
+            listaMeczy[numerMeczu].UstawWyniki(w1, w2);
+        }
     }
 }
