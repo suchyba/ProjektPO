@@ -10,11 +10,13 @@ namespace Plaza
     {
         List<Druzyna> listaDruzyn;
         List<Mecz> listaMeczy;
+        List<Zawodnik> listaZawodnikow;
 
         public BazaDruzyn()
         {
             listaDruzyn = new List<Druzyna>();
             listaMeczy = new List<Mecz>();
+            listaZawodnikow = new List<Zawodnik>();
         }
 
         public void ZglosDruzyne(Druzyna d) => listaDruzyn.Add(d);
