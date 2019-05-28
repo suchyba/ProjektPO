@@ -56,6 +56,18 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="MeczSiatkowki.cs" />
+    <Compile Include="ModyfikacjaDruzyny.xaml.cs">
+      <DependentUpon>ModyfikacjaDruzyny.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ModyfikacjaSedziego.xaml.cs">
+      <DependentUpon>ModyfikacjaSedziego.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ModyfikacjaZawodnika.xaml.cs">
+      <DependentUpon>ModyfikacjaZawodnika.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="OknoGlowne.xaml.cs">
+      <DependentUpon>OknoGlowne.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Sedzia.cs" />
     <Compile Include="Zawodnik.cs" />
     <Page Include="MainWindow.xaml">
@@ -75,6 +87,22 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="ModyfikacjaDruzyny.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ModyfikacjaSedziego.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ModyfikacjaZawodnika.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="OknoGlowne.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Mecz.cs" />
