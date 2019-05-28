@@ -14,6 +14,7 @@ namespace Plaza
         protected string nazwa;
         protected int rokPowstania;
         protected string opis;
+        protected int punkty;
 
         /**
          * <summary>Konstruktor przyjmujacy podstawowe dane o drużynie.</summary>
@@ -31,6 +32,15 @@ namespace Plaza
         public void AktualizujOpis(string nowyOpis)
         {
             opis = nowyOpis;
+        }
+        public int GetPunkty() => punkty;
+        public void DodajZwycięztwo()
+        {
+            punkty += 2;
+        }
+        public void DodajRemis()
+        {
+            punkty += 1;
         }
     }
 }

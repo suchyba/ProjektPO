@@ -6,13 +6,14 @@ using System.Threading.Tasks;
 
 namespace Plaza
 {
-    class BazaDruzyn
+    class BazaDanych
     {
         List<Druzyna> listaDruzyn;
         List<Mecz> listaMeczy;
         List<Zawodnik> listaZawodnikow;
+        List<Sedzia> listaSedziow;
 
-        public BazaDruzyn()
+        public BazaDanych()
         {
             listaDruzyn = new List<Druzyna>();
             listaMeczy = new List<Mecz>();
@@ -32,5 +33,13 @@ namespace Plaza
         }
         public void DodajMecz(Mecz m) => listaMeczy.Add(m);
         public void RozegrajMecz(int numerMeczu, int w1, int w2) => listaMeczy[numerMeczu].UstawWyniki(w1, w2);
+        public void DodajSedziego(Sedzia s)
+        {
+            listaSedziow.Add(s);
+        }
+        public void UsunSedziego(string numerLicencji)
+        {
+
+        }
     }
 }

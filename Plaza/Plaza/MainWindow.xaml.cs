@@ -20,11 +20,11 @@ namespace Plaza
     /// </summary>
     public partial class MainWindow : Window
     {
-        private BazaDruzyn baza;
+        private BazaDanych baza;
         public MainWindow()
         {
             InitializeComponent();
-            baza = new BazaDruzyn();
+            baza = new BazaDanych();
         }
 
         private void ZatwierdzButt_Click(object sender, RoutedEventArgs e)
