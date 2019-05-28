@@ -15,9 +15,5 @@ namespace Plaza
         {
 
         }
-        public DruzynaSiatkowka(string n, int r, string o, string[] zawodnicy) : base(n, r, o, zawodnicy)
-        {
-
-        }
     }
 }
