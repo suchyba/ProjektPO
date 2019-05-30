@@ -12,6 +12,7 @@ namespace Plaza
         string nazwisko;
         int wiek;
         string numerLicencji;
+        int liczbaSedziowanychMeczow;
 
         public Sedzia(string i, string n, int w, string num)
         {
@@ -37,5 +38,6 @@ namespace Plaza
         {
             return numerLicencji;
         }
+        public int GetIloscSedziowanychMeczow() => liczbaSedziowanychMeczow;
     }
 }

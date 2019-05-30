@@ -68,7 +68,9 @@
     <Compile Include="OknoGlowne.xaml.cs">
       <DependentUpon>OknoGlowne.xaml</DependentUpon>
     </Compile>
+    <Compile Include="DruzynaComparer.cs" />
     <Compile Include="Sedzia.cs" />
+    <Compile Include="SedziaComparer.cs" />
     <Compile Include="Zawodnik.cs" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>

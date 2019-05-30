@@ -6,6 +6,10 @@ using System.Threading.Tasks;
 
 namespace Plaza
 {
+    enum Sporty
+    {
+        Siatkowka, PrzeciaganieLiny, DwaOgnie
+    }
     /**
      * <summary>Klasa opisująca drużyny prowadzące rozgrywki.</summary>
      */
