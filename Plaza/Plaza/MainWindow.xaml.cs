@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Plaza.Technologie_Testowe;
+using Plaza.Testowe_okna;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,17 +22,43 @@ namespace Plaza
     /// </summary>
     public partial class MainWindow : Window
     {
-        private BazaDanych baza;
         public MainWindow()
         {
             InitializeComponent();
-            baza = new BazaDanych();
+            TestTxtBlock.Text = "";
+            StatycznaBazaWszytkichDanych.GetBaza().DodajSedziego(new Sedzia("Bartek", "Konopka", 20, "EXC2003"));
         }
 
         private void ZatwierdzButt_Click(object sender, RoutedEventArgs e)
         {
-            baza.ZglosDruzyne(new Druzyna(NazwaDruzynyTxtBox.Text, int.Parse(RokPowstaniaTxtBox.Text), OpisTxtBox.Text));
-            TestTxtBlock.Text = TestTxtBlock.Text + "\n" + baza.GetListaDruzyn().LastOrDefault().GetNazwa() + " " + baza.GetListaDruzyn().LastOrDefault().GetRokPowstania() + " " + baza.GetListaDruzyn().LastOrDefault().GetOpis();
+            StatycznaBazaWszytkichDanych.GetBaza().ZglosDruzyne(new DruzynaDwaOgnie(NazwaDruzynyTxtBox.Text, int.Parse(RokPowstaniaTxtBox.Text), OpisTxtBox.Text));
+            odswiez();
+        }
+
+        private void OdswiezButt_Click(object sender, RoutedEventArgs e)
+        {
+            odswiez();
+            
+        }
+        private void odswiez()
+        {
+            TestTxtBlock.Text = "";
+            foreach (var druzyna in StatycznaBazaWszytkichDanych.GetBaza().GetListaDruzyn())
+            {
+                TestTxtBlock.Text += druzyna.GetNazwa() + " " + druzyna.GetRokPowstania() + " " + druzyna.GetPunkty() + " " + druzyna +  "\n";
+            }
+        }
+
+        private void UsunButt_Click(object sender, RoutedEventArgs e)
+        {
+            StatycznaBazaWszytkichDanych.GetBaza().WycofajDruzyne(NazwaDruzynyTxtBox.Text);
+            odswiez();
+        }
+
+        private void MeczeButt_Click(object sender, RoutedEventArgs e)
+        {
+            Mecze meczeOkno = new Mecze();
+            meczeOkno.Show();
         }
     }
 }

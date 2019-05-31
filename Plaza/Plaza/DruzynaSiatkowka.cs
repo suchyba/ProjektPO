@@ -15,5 +15,9 @@ namespace Plaza
         {
 
         }
+        /*public override string ToString()
+        {
+            return "Siatkówka";
+        }*/
     }
 }

@@ -71,6 +71,10 @@
     <Compile Include="DruzynaComparer.cs" />
     <Compile Include="Sedzia.cs" />
     <Compile Include="SedziaComparer.cs" />
+    <Compile Include="Technologie Testowe\StatycznaBazaWszytkichDanych.cs" />
+    <Compile Include="Testowe okna\Mecze.xaml.cs">
+      <DependentUpon>Mecze.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Zawodnik.cs" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -102,6 +106,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="OknoGlowne.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Testowe okna\Mecze.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

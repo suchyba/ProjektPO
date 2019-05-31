@@ -46,5 +46,9 @@ namespace Plaza
         {
             punkty += 1;
         }
+        public override string ToString()
+        {
+            return "Drużyna: " + nazwa;
+        }
     }
 }

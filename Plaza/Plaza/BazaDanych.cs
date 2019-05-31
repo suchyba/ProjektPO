@@ -18,6 +18,7 @@ namespace Plaza
             listaDruzyn = new List<Druzyna>();
             listaMeczy = new List<Mecz>();
             listaZawodnikow = new List<Zawodnik>();
+            listaSedziow = new List<Sedzia>();
         }
 
         public void ZglosDruzyne(Druzyna d) => listaDruzyn.Add(d);
@@ -25,7 +26,40 @@ namespace Plaza
         public List<Druzyna> GetListaDruzyn() => listaDruzyn;
         public void GenerujFinaly(Sporty sport)
         {
-
+            listaSedziow.Sort(new SedziaComparer());
+            switch (sport)
+            {
+                case Sporty.Siatkowka:
+                    {
+                        List<Mecz> listaMeczowPolfinalowych = (List<Mecz>)listaMeczy.Where(m => m.GetStopienMeczu() == (int)StopienMeczu.MeczPolfinalowy && m.GetDruzyny()[0] is DruzynaSiatkowka);
+                        Druzyna d1, d2;
+                        d1 = listaMeczowPolfinalowych[0].GetWynik()[0] > listaMeczowPolfinalowych[0].GetWynik()[1] ? listaMeczowPolfinalowych[0].GetDruzyny()[0] : listaMeczowPolfinalowych[0].GetDruzyny()[1];
+                        d2 = listaMeczowPolfinalowych[1].GetWynik()[0] > listaMeczowPolfinalowych[1].GetWynik()[1] ? listaMeczowPolfinalowych[1].GetDruzyny()[0] : listaMeczowPolfinalowych[1].GetDruzyny()[1];
+                        DodajMecz(new MeczSiatkowki(d1, d2, listaSedziow[0], (int)StopienMeczu.MeczFilalowy, listaSedziow[1], listaSedziow[2]));
+                        break;
+                    }
+                case Sporty.PrzeciaganieLiny:
+                    {
+                        List<Mecz> listaMeczowPolfinalowych = (List<Mecz>)listaMeczy.Where(m => m.GetStopienMeczu() == (int)StopienMeczu.MeczPolfinalowy && m.GetDruzyny()[0] is DruzynaPrzeciaganieLiny);
+                        Druzyna d1, d2;
+                        d1 = listaMeczowPolfinalowych[0].GetWynik()[0] > listaMeczowPolfinalowych[0].GetWynik()[1] ? listaMeczowPolfinalowych[0].GetDruzyny()[0] : listaMeczowPolfinalowych[0].GetDruzyny()[1];
+                        d2 = listaMeczowPolfinalowych[1].GetWynik()[0] > listaMeczowPolfinalowych[1].GetWynik()[1] ? listaMeczowPolfinalowych[1].GetDruzyny()[0] : listaMeczowPolfinalowych[1].GetDruzyny()[1];
+                        DodajMecz(new Mecz(d1, d2, listaSedziow[0], (int)StopienMeczu.MeczFilalowy));
+                        break;
+                    }
+                case Sporty.DwaOgnie:
+                    {
+                        List<Mecz> listaMeczowPolfinalowych = (List<Mecz>)listaMeczy.Where(m => m.GetStopienMeczu() == (int)StopienMeczu.MeczPolfinalowy && m.GetDruzyny()[0] is DruzynaDwaOgnie);
+                        Druzyna d1, d2;
+                        d1 = listaMeczowPolfinalowych[0].GetWynik()[0] > listaMeczowPolfinalowych[0].GetWynik()[1] ? listaMeczowPolfinalowych[0].GetDruzyny()[0] : listaMeczowPolfinalowych[0].GetDruzyny()[1];
+                        d2 = listaMeczowPolfinalowych[1].GetWynik()[0] > listaMeczowPolfinalowych[1].GetWynik()[1] ? listaMeczowPolfinalowych[1].GetDruzyny()[0] : listaMeczowPolfinalowych[1].GetDruzyny()[1];
+                        DodajMecz(new Mecz(d1, d2, listaSedziow[0], (int)StopienMeczu.MeczFilalowy));
+                        break;
+                    }
+                default:
+                    break;
+            }
+            
         }
         public void GenerujPolfinaly(Sporty sport)
         {
@@ -67,7 +101,7 @@ namespace Plaza
                         {
                             if (druzyna is DruzynaDwaOgnie && d1 == null)
                                 d1 = druzyna;
-                            else if(druzyna is DruzynaDwaOgnie && d1 == null)
+                            else if(druzyna is DruzynaDwaOgnie)
                             {
                                 DodajMecz(new Mecz(d1, druzyna, listaSedziow[0], (int)StopienMeczu.MeczPolfinalowy));
                                 d1 = null;
@@ -86,6 +120,7 @@ namespace Plaza
         public void RozegrajMecz(int numerMeczu, int w1, int w2) => listaMeczy[numerMeczu].UstawWyniki(w1, w2);
         public void DodajSedziego(Sedzia s) => listaSedziow.Add(s);
         public void UsunSedziego(string numerLicencji) => listaSedziow.Remove(listaSedziow.Where(s => s.GetNumerLicencji() == numerLicencji).FirstOrDefault());
-
+        public List<Mecz> GetListaMeczy() => listaMeczy;
+        public List<Sedzia> GetListaSedziow() => listaSedziow;
     }
 }

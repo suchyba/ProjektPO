@@ -7,14 +7,17 @@
         mc:Ignorable="d"
         Title="Rozgrywki" Height="450" Width="800">
     <Window.Resources>
-        <CollectionViewSource x:Key="bazaDruzynViewSource" d:DesignSource="{d:DesignInstance {x:Type local:BazaDruzyn}, CreateList=True}"/>
+        <CollectionViewSource x:Key="bazaDruzynViewSource" d:DesignSource="{d:DesignInstance {x:Type local:BazaDanych}, CreateList=True}"/>
     </Window.Resources>
     <Grid DataContext="{StaticResource bazaDruzynViewSource}">
-        <Button x:Name="ZatwierdzButt" Content="Button" HorizontalAlignment="Left" Margin="245,111,0,0" VerticalAlignment="Top" Width="75" Click="ZatwierdzButt_Click"/>
+        <Button x:Name="ZatwierdzButt" Content="Dodaj" HorizontalAlignment="Left" Margin="80,325,0,0" VerticalAlignment="Top" Width="75" Click="ZatwierdzButt_Click"/>
         <TextBox x:Name="NazwaDruzynyTxtBox" HorizontalAlignment="Left" Height="23" Margin="80,57,0,0" TextWrapping="Wrap" Text="Nazwa" VerticalAlignment="Top" Width="120"/>
         <TextBox x:Name="RokPowstaniaTxtBox" HorizontalAlignment="Left" Height="23" Margin="80,108,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Text="2019"/>
         <TextBox x:Name="OpisTxtBox" HorizontalAlignment="Left" Height="23" Margin="80,162,0,0" TextWrapping="Wrap" Text="Opis" VerticalAlignment="Top" Width="120"/>
-        <TextBlock x:Name="TestTxtBlock" HorizontalAlignment="Left" Margin="450,44,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Height="301" Width="312"/>
+        <TextBlock x:Name="TestTxtBlock" HorizontalAlignment="Left" Margin="223,44,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Height="255" Width="539"/>
+        <Button x:Name="OdswiezButt" Content="Odśwież" HorizontalAlignment="Left" Margin="314,325,0,0" VerticalAlignment="Top" Width="75" Click="OdswiezButt_Click"/>
+        <Button x:Name="UsunButt" Content="Usuń" HorizontalAlignment="Left" Margin="197,325,0,0" VerticalAlignment="Top" Width="75" Click="UsunButt_Click"/>
+        <Button x:Name="MeczeButt" Content="Mecze" HorizontalAlignment="Left" Margin="80,369,0,0" VerticalAlignment="Top" Width="75" Click="MeczeButt_Click"/>
 
     </Grid>
 </Window>

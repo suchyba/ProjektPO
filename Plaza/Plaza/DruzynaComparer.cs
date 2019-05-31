@@ -11,7 +11,7 @@ namespace Plaza
         public override int Compare(Druzyna x, Druzyna y)
         {
             if (object.Equals(x, y))    return 0;
-            return x.GetPunkty().CompareTo(y.GetPunkty());
+            return y.GetPunkty().CompareTo(x.GetPunkty());
         }
     }
 }

@@ -11,7 +11,7 @@ namespace Plaza
         public override int Compare(Sedzia x, Sedzia y)
         {
             if (object.Equals(x, y)) return 0;
-            return x.GetIloscSedziowanychMeczow().CompareTo(y.GetIloscSedziowanychMeczow());
+            return y.GetIloscSedziowanychMeczow().CompareTo(x.GetIloscSedziowanychMeczow());
         }
     }
 }
