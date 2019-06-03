@@ -20,6 +20,13 @@ namespace Plaza
         protected string opis;
         protected int punkty;
 
+        public string Nazwa { get => nazwa; set { nazwa = value; } }
+        public int RokPowstania => rokPowstania;
+        public string Opis => opis;
+        public int Punkty => punkty;
+
+
+
         /**
          * <summary>Konstruktor przyjmujacy podstawowe dane o drużynie.</summary>
          */

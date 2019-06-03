@@ -25,40 +25,38 @@ namespace Plaza
         public MainWindow()
         {
             InitializeComponent();
-            TestTxtBlock.Text = "";
             StatycznaBazaWszytkichDanych.GetBaza().DodajSedziego(new Sedzia("Bartek", "Konopka", 20, "EXC2003"));
+            DruzynyDataGrid.ItemsSource = StatycznaBazaWszytkichDanych.GetBaza().GetListaDruzyn();
         }
 
         private void ZatwierdzButt_Click(object sender, RoutedEventArgs e)
         {
             StatycznaBazaWszytkichDanych.GetBaza().ZglosDruzyne(new DruzynaDwaOgnie(NazwaDruzynyTxtBox.Text, int.Parse(RokPowstaniaTxtBox.Text), OpisTxtBox.Text));
-            odswiez();
+            DruzynyDataGrid.Items.Refresh();
         }
 
         private void OdswiezButt_Click(object sender, RoutedEventArgs e)
         {
-            odswiez();
-            
-        }
-        private void odswiez()
-        {
-            TestTxtBlock.Text = "";
-            foreach (var druzyna in StatycznaBazaWszytkichDanych.GetBaza().GetListaDruzyn())
-            {
-                TestTxtBlock.Text += druzyna.GetNazwa() + " " + druzyna.GetRokPowstania() + " " + druzyna.GetPunkty() + " " + druzyna +  "\n";
-            }
+            DruzynyDataGrid.Items.Refresh();            
         }
 
         private void UsunButt_Click(object sender, RoutedEventArgs e)
         {
             StatycznaBazaWszytkichDanych.GetBaza().WycofajDruzyne(NazwaDruzynyTxtBox.Text);
-            odswiez();
+            DruzynyDataGrid.Items.Refresh();
         }
 
         private void MeczeButt_Click(object sender, RoutedEventArgs e)
         {
             Mecze meczeOkno = new Mecze();
             meczeOkno.Show();
+        }
+
+        private void Window_Loaded(object sender, RoutedEventArgs e)
+        {
+            System.Windows.Data.CollectionViewSource druzynaViewSource = ((System.Windows.Data.CollectionViewSource)(this.FindResource("druzynaViewSource")));
+            // Załaduj dane poprzez ustawienie właściwości CollectionViewSource.Source:
+            // druzynaViewSource.Źródło = [ogólne źródło danych]
         }
     }
 }

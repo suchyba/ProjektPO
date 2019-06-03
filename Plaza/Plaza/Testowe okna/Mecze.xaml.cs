@@ -23,11 +23,20 @@ namespace Plaza.Testowe_okna
         public Mecze()
         {
             InitializeComponent();
+            MeczeDataGrid.ItemsSource = StatycznaBazaWszytkichDanych.GetBaza().GetListaMeczy();
         }
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
-            odswierz();
+            System.Windows.Data.CollectionViewSource meczViewSource = ((System.Windows.Data.CollectionViewSource)(this.FindResource("meczViewSource")));
+            // Załaduj dane poprzez ustawienie właściwości CollectionViewSource.Source:
+            // meczViewSource.Źródło = [ogólne źródło danych]
+            System.Windows.Data.CollectionViewSource meczSiatkowkiViewSource = ((System.Windows.Data.CollectionViewSource)(this.FindResource("meczSiatkowkiViewSource")));
+            // Załaduj dane poprzez ustawienie właściwości CollectionViewSource.Source:
+            // meczSiatkowkiViewSource.Źródło = [ogólne źródło danych]
+            System.Windows.Data.CollectionViewSource druzynaViewSource = ((System.Windows.Data.CollectionViewSource)(this.FindResource("druzynaViewSource")));
+            // Załaduj dane poprzez ustawienie właściwości CollectionViewSource.Source:
+            // druzynaViewSource.Źródło = [ogólne źródło danych]
         }
 
         private void DruzynyCombo_Loaded(object sender, RoutedEventArgs e)
@@ -39,22 +48,19 @@ namespace Plaza.Testowe_okna
         private void DodajMeczButt_Click(object sender, RoutedEventArgs e)
         {
             BazaDanych baza = StatycznaBazaWszytkichDanych.GetBaza();
-            baza.DodajMecz(new Mecz(Druzyna1Combo.SelectedItem as Druzyna, Druzyna2Combo.SelectedItem as Druzyna, StatycznaBazaWszytkichDanych.GetBaza().GetListaSedziow()[0], (int)StopienMeczu.MeczLigowy, int.Parse(WynikDruzyna1.Text), int.Parse(WynikDruzyna2.Text)));
-            odswierz();
-        }
-        private void odswierz()
-        {
-            ListaMeczyTextBox.Text = "";
-            foreach (var mecz in StatycznaBazaWszytkichDanych.GetBaza().GetListaMeczy())
-            {
-                ListaMeczyTextBox.Text += "Mecz: " + mecz.GetDruzyny()[0] + " vs " + mecz.GetDruzyny()[1] + " " + mecz.GetWynik()[0] + ":" + mecz.GetWynik()[1] + "\n";
-            }
+            baza.DodajMecz(new MeczSiatkowki(Druzyna1Combo.SelectedItem as Druzyna, Druzyna2Combo.SelectedItem as Druzyna, StatycznaBazaWszytkichDanych.GetBaza().GetListaSedziow()[0], (int)StopienMeczu.MeczLigowy, StatycznaBazaWszytkichDanych.GetBaza().GetListaSedziow()[0], StatycznaBazaWszytkichDanych.GetBaza().GetListaSedziow()[0], int.Parse(WynikDruzyna1.Text), int.Parse(WynikDruzyna2.Text)));
+            MeczeDataGrid.Items.Refresh();
         }
 
         private void GenerujPolfinalyButt_Click(object sender, RoutedEventArgs e)
         {
             StatycznaBazaWszytkichDanych.GetBaza().GenerujPolfinaly(Sporty.DwaOgnie);
-            odswierz();
+            MeczeDataGrid.Items.Refresh();
+        }
+
+        private void Druzyna1Combo_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            
         }
     }
 }

@@ -9,6 +9,7 @@ namespace Plaza
     class MeczSiatkowki : Mecz
     {
         Sedzia[] sedziowiePomocniczy;
+        public string SedziowiePomocniczy => sedziowiePomocniczy[0].ImieNazwisko + "\n" + sedziowiePomocniczy[1].ImieNazwisko;
 
         public MeczSiatkowki(Druzyna d1, Druzyna d2, Sedzia sd, int stM, Sedzia sp1, Sedzia sp2) : base(d1, d2, sd, stM)
         {
