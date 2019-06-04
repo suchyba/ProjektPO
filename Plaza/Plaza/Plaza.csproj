@@ -55,7 +55,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="MeczSiatkowki.cs" />
+    <Compile Include="Mecze\MeczSiatkowki.cs" />
     <Compile Include="ModyfikacjaDruzyny.xaml.cs">
       <DependentUpon>ModyfikacjaDruzyny.xaml</DependentUpon>
     </Compile>
@@ -68,10 +68,10 @@
     <Compile Include="OknoGlowne.xaml.cs">
       <DependentUpon>OknoGlowne.xaml</DependentUpon>
     </Compile>
-    <Compile Include="DruzynaComparer.cs" />
-    <Compile Include="Sedzia.cs" />
-    <Compile Include="SedziaComparer.cs" />
-    <Compile Include="Technologie Testowe\StatycznaBazaWszytkichDanych.cs" />
+    <Compile Include="Druzyny\DruzynaComparer.cs" />
+    <Compile Include="Sedziowie\Sedzia.cs" />
+    <Compile Include="Sedziowie\SedziaComparer.cs" />
+    <Compile Include="Dane\StatycznaBazaWszytkichDanych.cs" />
     <Compile Include="Testowe okna\Mecze.xaml.cs">
       <DependentUpon>Mecze.xaml</DependentUpon>
     </Compile>
@@ -84,11 +84,11 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="BazaDanych.cs" />
-    <Compile Include="Druzyna.cs" />
-    <Compile Include="DruzynaDwaOgnie.cs" />
-    <Compile Include="DruzynaPrzeciaganieLiny.cs" />
-    <Compile Include="DruzynaSiatkowka.cs" />
+    <Compile Include="Dane\BazaDanych.cs" />
+    <Compile Include="Druzyny\Druzyna.cs" />
+    <Compile Include="Druzyny\DruzynaDwaOgnie.cs" />
+    <Compile Include="Druzyny\DruzynaPrzeciaganieLiny.cs" />
+    <Compile Include="Druzyny\DruzynaSiatkowka.cs" />
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
@@ -115,7 +115,7 @@
     </Page>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Mecz.cs" />
+    <Compile Include="Mecze\Mecz.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>

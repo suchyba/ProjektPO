@@ -13,6 +13,11 @@ namespace Plaza
         DateTime dataUrodzenia;
         Druzyna druzyna;
 
+        public string Imie { get => imie; set => imie = value; }
+        public string Nazwisko { get => nazwisko; set => nazwisko = value; }
+        public DateTime DataUrodzenia { get => dataUrodzenia; set => dataUrodzenia = value; }
+        internal Druzyna Druzyna { get => druzyna; set => druzyna = value; }
+
         public Zawodnik(string i, string n, DateTime d, Druzyna dr)
         {
             imie = i;
