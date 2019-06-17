@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:Plaza.Testowe_okna"
         xmlns:Plaza="clr-namespace:Plaza" xmlns:Technologie_Testowe="clr-namespace:Plaza.Technologie_Testowe" x:Class="Plaza.Testowe_okna.Mecze"
         mc:Ignorable="d"
-        Title="Mecze" Height="557" Width="1044.006" Loaded="Window_Loaded">
+        Title="Mecze" Height="557" Width="1044.006" Loaded="Window_Loaded" Activated="Window_Activated">
     <Window.Resources>
         <CollectionViewSource x:Key="bazaDanychViewSource"/>
         <CollectionViewSource x:Key="statycznaBazaWszytkichDanychViewSource" />
@@ -19,7 +19,7 @@
         <Button x:Name="DodajMeczButt" Content="Dodaj" HorizontalAlignment="Left" Margin="16,377,0,0" VerticalAlignment="Top" Width="75" Click="DodajMeczButt_Click"/>
 
 
-        <DataGrid x:Name="MeczeDataGrid" HorizontalAlignment="Left" Height="298" Margin="371,72,0,0" VerticalAlignment="Top" Width="601" ItemsSource="{Binding Source={StaticResource meczSiatkowkiViewSource}}" AutoGenerateColumns="False" VerticalContentAlignment="Center">
+        <DataGrid x:Name="MeczeDataGrid" HorizontalAlignment="Left" Height="298" Margin="371,72,0,0" VerticalAlignment="Top" Width="601" ItemsSource="{Binding Source={StaticResource meczSiatkowkiViewSource}}" AutoGenerateColumns="False" VerticalContentAlignment="Center" SelectionChanged="MeczeDataGrid_SelectionChanged">
             <DataGrid.Columns>
                 <DataGridTextColumn Binding="{Binding DruzynaPierwsza.Nazwa}" ClipboardContentBinding="{x:Null}" Header="Pierwsza Drużyna" IsReadOnly="True"/>
                 <DataGridTextColumn Binding="{Binding DruzynaDruga.Nazwa}" ClipboardContentBinding="{x:Null}" Header="Druga Drużyna" IsReadOnly="True"/>
@@ -29,12 +29,12 @@
                 <DataGridTextColumn Binding="{Binding SedziowiePomocniczy}" ClipboardContentBinding="{x:Null}" Header="Sędziowie Pomocniczy" IsReadOnly="True"/>
             </DataGrid.Columns>
         </DataGrid>
-        <GroupBox Header="Generuj" HorizontalAlignment="Left" Height="90" Margin="16,414,0,0" VerticalAlignment="Top" Width="306">
-            <Grid HorizontalAlignment="Left" Height="80" Margin="0,-10,-2,-2" VerticalAlignment="Top" Width="296">
-                <ComboBox x:Name="Sport" HorizontalAlignment="Left" Margin="158,16,0,0" VerticalAlignment="Top" Width="120" SelectionChanged="Sport_SelectionChanged"/>
+        <GroupBox Header="Generuj" HorizontalAlignment="Left" Height="90" Margin="16,414,0,0" VerticalAlignment="Top" Width="337">
+            <Grid HorizontalAlignment="Left" Height="80" Margin="0,-10,-34,-2" VerticalAlignment="Top" Width="328">
+                <ComboBox x:Name="Sport" HorizontalAlignment="Left" Margin="198,12,0,0" VerticalAlignment="Top" Width="120" SelectionChanged="Sport_SelectionChanged"/>
                 <Button x:Name="GenerujPolfinalyButt" Content="Półfinały" HorizontalAlignment="Left" Margin="10,50,0,0" VerticalAlignment="Top" Width="75" Click="GenerujPolfinalyButt_Click" IsEnabled="False"/>
-                <Button x:Name="GenerujFinałyButt" Content="Finały" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Margin="211,50,0,0" IsEnabled="False"/>
-                <Label Content="Sport:" HorizontalAlignment="Left" Margin="106,12,0,0" VerticalAlignment="Top" Width="50" Height="30"/>
+                <Button x:Name="GenerujFinałyButt" Content="Finały" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Margin="243,50,0,0" Click="GenerujFinalyButt_Click" IsEnabled="False"/>
+                <Label Content="Sport:" HorizontalAlignment="Left" Margin="154,8,0,0" VerticalAlignment="Top" Width="50" Height="30"/>
             </Grid>
         </GroupBox>
         <GroupBox Header="Drużyny" HorizontalAlignment="Left" Height="80" VerticalAlignment="Top" Width="337" Margin="16,31,0,0">
@@ -56,13 +56,14 @@
         </GroupBox>
         <GroupBox Header="Sędziowie" HorizontalAlignment="Left" Height="119" Margin="16,230,0,0" VerticalAlignment="Top" Width="337">
             <Grid HorizontalAlignment="Left" Height="100" Margin="0,0,-2,-2" VerticalAlignment="Top" Width="327">
-                <ComboBox x:Name="SedziaGlownyCombo" HorizontalAlignment="Left" Margin="197,15,0,0" VerticalAlignment="Top" Width="120" DisplayMemberPath="ImieNazwisko" ItemsSource="{Binding Source={StaticResource sedziaViewSource}}" SelectedValuePath="IloscSedziowanychMeczow" Loaded="SedziowieCombo_Loaded"/>
+                <ComboBox x:Name="SedziaGlownyCombo" HorizontalAlignment="Left" Margin="197,15,0,0" VerticalAlignment="Top" Width="120" DisplayMemberPath="ImieNazwisko" ItemsSource="{Binding Source={StaticResource sedziaViewSource}}" SelectedValuePath="IloscSedziowanychMeczow" Loaded="SedziowieCombo_Loaded" SelectionChanged="SedziaGlownyCombo_SelectionChanged"/>
                 <Label Content="Sędzia główny:" HorizontalAlignment="Left" Margin="10,11,0,0" VerticalAlignment="Top"/>
                 <Label Content="Sędziowie pomocniczy:" HorizontalAlignment="Left" Margin="10,51,0,0" VerticalAlignment="Top"/>
-                <ComboBox x:Name="SedziaPomocniczy1Combo" HorizontalAlignment="Left" Margin="197,42,0,0" VerticalAlignment="Top" Width="120" IsEnabled="False" Loaded="SedziowieCombo_Loaded" DisplayMemberPath="ImieNazwisko" ItemsSource="{Binding Source={StaticResource sedziaViewSource}}" SelectedValuePath="IloscSedziowanychMeczow"/>
+                <ComboBox x:Name="SedziaPomocniczy1Combo" HorizontalAlignment="Left" Margin="197,42,0,0" VerticalAlignment="Top" Width="120" IsEnabled="False" Loaded="SedziowieCombo_Loaded" DisplayMemberPath="ImieNazwisko" ItemsSource="{Binding Source={StaticResource sedziaViewSource}}" SelectedValuePath="IloscSedziowanychMeczow" SelectionChanged="SedziaPomocniczy1Combo_SelectionChanged"/>
                 <ComboBox x:Name="SedziaPomocniczy2Combo" HorizontalAlignment="Left" Margin="197,69,0,0" VerticalAlignment="Top" Width="120" IsEnabled="False" Loaded="SedziowieCombo_Loaded" DisplayMemberPath="ImieNazwisko" ItemsSource="{Binding Source={StaticResource sedziaViewSource}}" SelectedValuePath="IloscSedziowanychMeczow"/>
             </Grid>
         </GroupBox>
+        <Button x:Name="RozegrajMczButt" Content="Rozegraj mecz" HorizontalAlignment="Left" Margin="253,377,0,0" VerticalAlignment="Top" Width="100" IsEnabled="False" Click="RozegrajMczButt_Click"/>
 
     </Grid>
 </Window>

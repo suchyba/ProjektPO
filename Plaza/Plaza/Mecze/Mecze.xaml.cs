@@ -71,16 +71,28 @@ namespace Plaza.Testowe_okna
         {
             BazaDanych baza = StatycznaBazaWszytkichDanych.GetBaza();
 
-            if (Druzyna1Combo.SelectedItem is DruzynaSiatkowka)
+            if (CzyRozegranyCheckBox.IsChecked == true)
             {
-                baza.DodajMecz(new MeczSiatkowki(Druzyna1Combo.SelectedItem as Druzyna, Druzyna2Combo.SelectedItem as Druzyna, SedziaGlownyCombo.SelectedItem as Sedzia, (int)StopienMeczu.MeczLigowy, SedziaPomocniczy1Combo.SelectedItem as Sedzia, SedziaPomocniczy2Combo.SelectedItem as Sedzia, int.Parse(WynikDruzyna1.Text), int.Parse(WynikDruzyna2.Text)));
+                if (Druzyna1Combo.SelectedItem is DruzynaSiatkowka)
+                {
+                    baza.DodajMecz(new MeczSiatkowki(Druzyna1Combo.SelectedItem as Druzyna, Druzyna2Combo.SelectedItem as Druzyna, SedziaGlownyCombo.SelectedItem as Sedzia, (int)StopienMeczu.MeczLigowy, SedziaPomocniczy1Combo.SelectedItem as Sedzia, SedziaPomocniczy2Combo.SelectedItem as Sedzia, int.Parse(WynikDruzyna1.Text), int.Parse(WynikDruzyna2.Text)));
+                }
+                else
+                {
+                    baza.DodajMecz(new Mecz(Druzyna1Combo.SelectedItem as Druzyna, Druzyna2Combo.SelectedItem as Druzyna, SedziaGlownyCombo.SelectedItem as Sedzia, (int)StopienMeczu.MeczLigowy, int.Parse(WynikDruzyna1.Text), int.Parse(WynikDruzyna2.Text)));
+                }
             }
-            else 
+            else
             {
-                baza.DodajMecz(new Mecz(Druzyna1Combo.SelectedItem as Druzyna, Druzyna2Combo.SelectedItem as Druzyna, SedziaGlownyCombo.SelectedItem as Sedzia, (int)StopienMeczu.MeczLigowy));
-            }
-            
-            
+                if (Druzyna1Combo.SelectedItem is DruzynaSiatkowka)
+                {
+                    baza.DodajMecz(new MeczSiatkowki(Druzyna1Combo.SelectedItem as Druzyna, Druzyna2Combo.SelectedItem as Druzyna, SedziaGlownyCombo.SelectedItem as Sedzia, (int)StopienMeczu.MeczLigowy, SedziaPomocniczy1Combo.SelectedItem as Sedzia, SedziaPomocniczy2Combo.SelectedItem as Sedzia));
+                }
+                else
+                {
+                    baza.DodajMecz(new Mecz(Druzyna1Combo.SelectedItem as Druzyna, Druzyna2Combo.SelectedItem as Druzyna, SedziaGlownyCombo.SelectedItem as Sedzia, (int)StopienMeczu.MeczLigowy));
+                }
+            }            
 
             MeczeDataGrid.Items.Refresh();
             Druzyna1Combo.SelectedItem = null;
@@ -88,6 +100,9 @@ namespace Plaza.Testowe_okna
             WynikDruzyna1.Text = null;
             WynikDruzyna2.Text = null;
             CzyRozegranyCheckBox.IsChecked = false;
+            SedziaGlownyCombo.SelectedItem = null;
+            SedziaPomocniczy1Combo.SelectedItem = null;
+            SedziaPomocniczy2Combo.SelectedItem = null;
         }
         /// <summary>
         /// Przycisk odpowiedzialny za generowanie półfinałów
@@ -106,7 +121,7 @@ namespace Plaza.Testowe_okna
         /// <param name="e">parametr zawierający dane wydarzenia</param>
         private void GenerujFinalyButt_Click(object sender, RoutedEventArgs e)
         {
-            StatycznaBazaWszytkichDanych.GetBaza().GenerujFinaly(Sporty.DwaOgnie);
+            StatycznaBazaWszytkichDanych.GetBaza().GenerujFinaly((Sporty)Sport.SelectedIndex);
             MeczeDataGrid.Items.Refresh();
         }
         /// <summary>
@@ -145,6 +160,34 @@ namespace Plaza.Testowe_okna
         {
             var combo = sender as ComboBox;
             combo.ItemsSource = StatycznaBazaWszytkichDanych.GetBaza().GetListaSedziow();
+        }
+
+        private void SedziaGlownyCombo_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            SedziaPomocniczy1Combo.ItemsSource = StatycznaBazaWszytkichDanych.GetBaza().GetListaSedziow().Where(s => s != SedziaGlownyCombo.SelectedItem);
+            SedziaPomocniczy2Combo.ItemsSource = StatycznaBazaWszytkichDanych.GetBaza().GetListaSedziow().Where(s => s != SedziaGlownyCombo.SelectedItem);
+        }
+
+        private void SedziaPomocniczy1Combo_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            SedziaPomocniczy2Combo.ItemsSource = StatycznaBazaWszytkichDanych.GetBaza().GetListaSedziow().Where(s => s != SedziaGlownyCombo.SelectedItem && s != SedziaPomocniczy1Combo.SelectedItem);
+        }
+
+        private void MeczeDataGrid_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            RozegrajMczButt.IsEnabled = MeczeDataGrid.SelectedItems.Count > 0 && (MeczeDataGrid.SelectedItem as Mecz).GetWynik()[0] == -1 ? true : false;
+        }
+
+        private void RozegrajMczButt_Click(object sender, RoutedEventArgs e)
+        {
+            RozegrajMecz rozegraj = new RozegrajMecz();
+            rozegraj.PokazOkno(StatycznaBazaWszytkichDanych.GetBaza().GetListaMeczy().IndexOf(MeczeDataGrid.SelectedItem as Mecz));
+            MeczeDataGrid.SelectedItem = null;
+        }
+
+        private void Window_Activated(object sender, EventArgs e)
+        {
+            MeczeDataGrid.Items.Refresh();
         }
     }
 }

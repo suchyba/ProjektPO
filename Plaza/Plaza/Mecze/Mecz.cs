@@ -32,7 +32,7 @@ namespace Plaza
         /// <summary>
         /// Pobieranie wyniku meczu 
         /// </summary>
-        public string WynikString { get => wynik[0] + " : " + wynik[1]; }
+        public string WynikString { get => wynik[0] != -1 ? wynik[0] + " : " + wynik[1] : "Nierozegrany"; }
         /// <summary>
         /// Określanie stopnia meczu
         /// </summary>
@@ -75,6 +75,7 @@ namespace Plaza
             sedziaGlowny = sd;
             stopienMeczu = stM;
             wynik = new int[2];
+            wynik[0] = -1;
             sd.ZwiekszIloscMeczow();
         }
         /// <summary>
