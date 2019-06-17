@@ -55,7 +55,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="MeczSiatkowki.cs" />
+    <Compile Include="Mecze\MeczSiatkowki.cs" />
     <Compile Include="ModyfikacjaDruzyny.xaml.cs">
       <DependentUpon>ModyfikacjaDruzyny.xaml</DependentUpon>
     </Compile>
@@ -68,7 +68,19 @@
     <Compile Include="OknoGlowne.xaml.cs">
       <DependentUpon>OknoGlowne.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Sedzia.cs" />
+    <Compile Include="Druzyny\DruzynaComparer.cs" />
+    <Compile Include="Sedziowie\Sedzia.cs" />
+    <Compile Include="Sedziowie\SedziaComparer.cs" />
+    <Compile Include="Dane\StatycznaBazaWszytkichDanych.cs" />
+    <Compile Include="Testowe okna\Mecze.xaml.cs">
+      <DependentUpon>Mecze.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Testowe okna\Sedziowie.xaml.cs">
+      <DependentUpon>Sedziowie.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Testowe okna\Zawodnicy.xaml.cs">
+      <DependentUpon>Zawodnicy.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Zawodnik.cs" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -78,11 +90,11 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="BazaDruzyn.cs" />
-    <Compile Include="Druzyna.cs" />
-    <Compile Include="DruzynaDwaOgnie.cs" />
-    <Compile Include="DruzynaPrzeciaganieLiny.cs" />
-    <Compile Include="DruzynaSiatkowka.cs" />
+    <Compile Include="Dane\BazaDanych.cs" />
+    <Compile Include="Druzyny\Druzyna.cs" />
+    <Compile Include="Druzyny\DruzynaDwaOgnie.cs" />
+    <Compile Include="Druzyny\DruzynaPrzeciaganieLiny.cs" />
+    <Compile Include="Druzyny\DruzynaSiatkowka.cs" />
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
@@ -103,9 +115,21 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Testowe okna\Mecze.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Testowe okna\Sedziowie.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Testowe okna\Zawodnicy.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Mecz.cs" />
+    <Compile Include="Mecze\Mecz.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -123,6 +147,10 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <None Include="Properties\DataSources\Druzyna.datasource" />
+    <None Include="Properties\DataSources\MeczSiatkowki.datasource" />
+    <None Include="Properties\DataSources\Sedzia.datasource" />
+    <None Include="Properties\DataSources\Zawodnik.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -131,8 +159,6 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Properties\DataSources\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
