@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Plaza
 {
-    enum StopienMeczu { MeczLigowy = 0, MeczPolfinalowy = 1, MeczFilalowy = 2};
+    enum StopienMeczu { MeczLigowy = 0, MeczPolfinalowy = 1, MeczFinalowy = 2};
     class Mecz
     {
         protected Druzyna[] druzyny;
@@ -22,6 +22,7 @@ namespace Plaza
             sedziaGlowny = sd;
             stopienMeczu = stM;
             wynik = new int[2];
+            sd.ZwiekszIloscMeczow();
         }
         public Mecz(Druzyna d1, Druzyna d2, Sedzia sd, int stM, int w1, int w2) : this(d1, d2, sd, stM)
         {
@@ -47,6 +48,18 @@ namespace Plaza
         {
             wynik[0] = w1;
             wynik[1] = w2;
+            if (stopienMeczu == (int)StopienMeczu.MeczLigowy)
+            {
+                if (w1 > w2)
+                    druzyny[0].DodajZwycięztwo();
+                else if (w2 > w1)
+                    druzyny[1].DodajZwycięztwo();
+                else if (w1 == w2)
+                {
+                    druzyny[0].DodajRemis();
+                    druzyny[1].DodajRemis();
+                }
+            }
         }
         public int GetStopienMeczu() => stopienMeczu;
     }

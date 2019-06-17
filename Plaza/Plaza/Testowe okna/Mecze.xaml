@@ -13,13 +13,23 @@
     </Window.Resources>
     <Grid>
         <Button x:Name="DodajMeczButt" Content="Dodaj" HorizontalAlignment="Left" Margin="32,286,0,0" VerticalAlignment="Top" Width="75" Click="DodajMeczButt_Click"/>
-        <TextBlock x:Name="ListaMeczyTextBox" HorizontalAlignment="Left" Margin="444,49,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="323" Width="299"/>
-        <ComboBox x:Name="Druzyna1Combo" Loaded ="DruzynyCombo_Loaded" HorizontalAlignment="Left" Margin="32,72,0,0" VerticalAlignment="Top" Width="120"/>
-        <ComboBox x:Name="Druzyna2Combo" Loaded ="DruzynyCombo_Loaded" HorizontalAlignment="Left" Margin="218,72,0,0" VerticalAlignment="Top" Width="120"/>
-        <TextBox x:Name="WynikDruzyna1" HorizontalAlignment="Left" Height="23" Margin="32,197,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
-        <TextBox x:Name="WynikDruzyna2" HorizontalAlignment="Left" Height="23" Margin="218,197,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <ComboBox x:Name="Druzyna1Combo" Loaded ="DruzynyCombo_Loaded" HorizontalAlignment="Left" Margin="32,72,0,0" VerticalAlignment="Top" Width="120" SelectionChanged="Druzyna1Combo_SelectionChanged" DisplayMemberPath="Nazwa" ItemsSource="{Binding Source={StaticResource druzynaViewSource}}" SelectedValuePath="Nazwa"/>
+        <ComboBox x:Name="Druzyna2Combo" Loaded ="DruzynyCombo_Loaded" HorizontalAlignment="Left" Margin="218,72,0,0" VerticalAlignment="Top" Width="120" DisplayMemberPath="Nazwa" ItemsSource="{Binding Source={StaticResource druzynaViewSource}}" SelectedValuePath="Nazwa"/>
+        <TextBox x:Name="WynikDruzyna1" HorizontalAlignment="Left" Height="23" Margin="32,197,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" IsEnabled="{Binding IsChecked, ElementName=CzyRozegranyCheckBox}"/>
+        <TextBox x:Name="WynikDruzyna2" HorizontalAlignment="Left" Height="23" Margin="218,197,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" IsEnabled="{Binding IsChecked, ElementName=CzyRozegranyCheckBox}"/>
         <Button x:Name="GenerujPolfinalyButt" Content="Półfinały" HorizontalAlignment="Left" Margin="49,372,0,0" VerticalAlignment="Top" Width="75" Click="GenerujPolfinalyButt_Click"/>
         <Button x:Name="GenerujFinałyButt" Content="Finały" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Margin="218,372,0,0"/>
+        <DataGrid x:Name="MeczeDataGrid" HorizontalAlignment="Left" Height="298" Margin="371,72,0,0" VerticalAlignment="Top" Width="601" ItemsSource="{Binding Source={StaticResource meczSiatkowkiViewSource}}" AutoGenerateColumns="False" VerticalContentAlignment="Center">
+            <DataGrid.Columns>
+                <DataGridTextColumn Binding="{Binding DruzynaPierwsza.Nazwa}" ClipboardContentBinding="{x:Null}" Header="Pierwsza Drużyna" IsReadOnly="True"/>
+                <DataGridTextColumn Binding="{Binding DruzynaDruga.Nazwa}" ClipboardContentBinding="{x:Null}" Header="Druga Drużyna" IsReadOnly="True"/>
+                <DataGridTextColumn Binding="{Binding WynikString}" ClipboardContentBinding="{x:Null}" Header="Wynik" IsReadOnly="True"/>
+                <DataGridTextColumn Binding="{Binding StopienMeczuString}" ClipboardContentBinding="{x:Null}" Header="Klasa Meczu" IsReadOnly="True"/>
+                <DataGridTextColumn Binding="{Binding SedziaGlowny.ImieNazwisko}" ClipboardContentBinding="{x:Null}" Header="Sędzia Główny" IsReadOnly="True"/>
+                <DataGridTextColumn Binding="{Binding SedziowiePomocniczy}" ClipboardContentBinding="{x:Null}" Header="Sędziowie Pomocniczy" IsReadOnly="True"/>
+            </DataGrid.Columns>
+        </DataGrid>
+        <CheckBox x:Name="CzyRozegranyCheckBox" Content="CheckBox" HorizontalAlignment="Left" Margin="32,136,0,0" VerticalAlignment="Top"/>
 
     </Grid>
 </Window>

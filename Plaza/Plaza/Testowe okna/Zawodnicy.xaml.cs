@@ -27,14 +27,26 @@ namespace Plaza.Testowe_okna
         }
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
+
             System.Windows.Data.CollectionViewSource zawodnikViewSource = ((System.Windows.Data.CollectionViewSource)(this.FindResource("zawodnikViewSource")));
+            System.Windows.Data.CollectionViewSource druzynaViewSource = ((System.Windows.Data.CollectionViewSource)(this.FindResource("druzynaViewSource")));
             // Załaduj dane poprzez ustawienie właściwości CollectionViewSource.Source:
-            // meczViewSource.Źródło = [ogólne źródło danych]
+            // druzynaViewSource.Źródło = [ogólne źródło danych]
         }
         private void DruzynyCombo_Loaded(object sender, RoutedEventArgs e)
         {
             var combo = sender as ComboBox;
             combo.ItemsSource = StatycznaBazaWszytkichDanych.GetBaza().GetListaDruzyn();
+        }
+
+        private void DodajZawodnikaButt_Click(object sender, RoutedEventArgs e)
+        {
+            //StatycznaBazaWszytkichDanych.GetBaza().DodajZawodnika(Imie.Text, Nazwisko.Text, DataUrodzenia.Text, Druzyna.SelectedItem as Druzyna);
+        }
+
+        private void UsunZawodnikaButt_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }
