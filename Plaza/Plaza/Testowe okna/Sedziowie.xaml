@@ -13,7 +13,7 @@
         <CollectionViewSource x:Key="sedziaViewSource" d:DesignSource="{d:DesignInstance {x:Type Plaza:Sedzia}, CreateList=True}"/>
     </Window.Resources>
     <Grid DataContext="{StaticResource sedziaViewSource}">
-        <DataGrid x:Name="SedziowieDataGrid" HorizontalAlignment="Left" Height="399" Margin="382,10,0,0" VerticalAlignment="Top" Width="400" AutoGenerateColumns="False" ItemsSource="{Binding}">
+        <DataGrid x:Name="SedziowieDataGrid" HorizontalAlignment="Left" Height="399" Margin="382,10,0,0" VerticalAlignment="Top" Width="400" AutoGenerateColumns="False" ItemsSource="{Binding}" SelectionChanged="SedziowieDataGrid_SelectionChanged">
             <DataGrid.Columns>
                 <DataGridTextColumn ClipboardContentBinding="{x:Null}" Header="Imię" IsReadOnly="True" Binding="{Binding Imie}"/>
                 <DataGridTextColumn ClipboardContentBinding="{x:Null}" Header="Nazwisko" IsReadOnly="True" Binding="{Binding Nazwisko}"/>
@@ -23,7 +23,7 @@
             </DataGrid.Columns>
         </DataGrid>
         <Button x:Name="DodajSedziegoButt" Content="Dodaj" HorizontalAlignment="Left" Margin="61,258,0,0" VerticalAlignment="Top" Width="75" Click="DodajSedziegoButt_Click"/>
-        <Button x:Name="UsunSedziegoButt" Content="Usuń" HorizontalAlignment="Left" Margin="239,258,0,0" VerticalAlignment="Top" Width="75" Click="UsunSedziegoButt_Click"/>
+        <Button x:Name="UsunSedziegoButt" Content="Usuń" HorizontalAlignment="Left" Margin="239,258,0,0" VerticalAlignment="Top" Width="75" Click="UsunSedziegoButt_Click" IsEnabled="False"/>
         <TextBox x:Name="Imie" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" Text="Imię" VerticalAlignment="Top" Width="120" Margin="10,10,0,0"/>
         <TextBox x:Name="Nazwisko" HorizontalAlignment="Left" Height="23" Margin="10,38,0,0" TextWrapping="Wrap" Text="Nazwisko" VerticalAlignment="Top" Width="120"/>
         <TextBox x:Name="Wiek" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" Text="Wiek" VerticalAlignment="Top" Width="120" Margin="10,66,0,0"/>

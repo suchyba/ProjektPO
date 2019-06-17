@@ -41,12 +41,19 @@ namespace Plaza.Testowe_okna
 
         private void DodajZawodnikaButt_Click(object sender, RoutedEventArgs e)
         {
-            //StatycznaBazaWszytkichDanych.GetBaza().DodajZawodnika(Imie.Text, Nazwisko.Text, DataUrodzenia.Text, Druzyna.SelectedItem as Druzyna);
+            StatycznaBazaWszytkichDanych.GetBaza().DodajZawodnika(Imie.Text, Nazwisko.Text, int.Parse(DataUrodzenia.Text), Druzyna.SelectedItem as Druzyna);
+            ZawodnicyDataGrid.Items.Refresh();
         }
 
         private void UsunZawodnikaButt_Click(object sender, RoutedEventArgs e)
         {
+            StatycznaBazaWszytkichDanych.GetBaza().UsunZawodnika(ZawodnicyDataGrid.SelectedItem as Zawodnik);
+            ZawodnicyDataGrid.Items.Refresh();
+        }
 
+        private void Druzyna_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            DodajZawodnikaButt.IsEnabled = Druzyna.SelectedIndex == -1 ? false : true;
         }
     }
 }

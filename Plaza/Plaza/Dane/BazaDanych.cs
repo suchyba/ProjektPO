@@ -141,9 +141,13 @@ namespace Plaza
         /// <returns></returns>
         public List<Sedzia> GetListaSedziow() => listaSedziow;
         public List<Zawodnik> GetListaZawodnikow() => listaZawodnikow;
-        public void DodajZawodnika(string imie, string nazwisko, DateTime dataUrodzenia, Druzyna druzyna)
+        public void DodajZawodnika(string imie, string nazwisko, int rokUrodzenia, Druzyna druzyna)
         {
-            listaZawodnikow.Add(new Zawodnik(imie, nazwisko, dataUrodzenia, druzyna));
+            listaZawodnikow.Add(new Zawodnik(imie, nazwisko, rokUrodzenia, druzyna));
+        }
+        public void UsunZawodnika(Zawodnik zawodnik)
+        {
+            listaZawodnikow.Remove(zawodnik);
         }
     }
 }

@@ -51,5 +51,10 @@ namespace Plaza.Testowe_okna
             StatycznaBazaWszytkichDanych.GetBaza().UsunSedziego((SedziowieDataGrid.SelectedItem as Sedzia).NumerLicencji);
             SedziowieDataGrid.Items.Refresh();
         }
+
+        private void SedziowieDataGrid_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            UsunSedziegoButt.IsEnabled = SedziowieDataGrid.SelectedItems.Count > 0 ? true : false;
+        }
     }
 }
