@@ -123,5 +123,9 @@ namespace Plaza
         public List<Mecz> GetListaMeczy() => listaMeczy;
         public List<Sedzia> GetListaSedziow() => listaSedziow;
         public List<Zawodnik> GetListaZawodnikow() => listaZawodnikow;
+        public void DodajZawodnika(string imie, string nazwisko, DateTime dataUrodzenia, Druzyna druzyna)
+        {
+            listaZawodnikow.Add(new Zawodnik(imie, nazwisko, dataUrodzenia, druzyna));
+        }
     }
 }
