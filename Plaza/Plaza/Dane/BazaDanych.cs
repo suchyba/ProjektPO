@@ -6,8 +6,14 @@ using System.Threading.Tasks;
 
 namespace Plaza
 {
+    /// <summary>
+    /// Klasa okreœlaj¹ca bazy danych
+    /// </summary>
     class BazaDanych
     {
+        /// <summary>
+        /// Spis list w wykorzystanych w bazie danych
+        /// </summary>
         List<Druzyna> listaDruzyn;
         List<Mecz> listaMeczy;
         List<Zawodnik> listaZawodnikow;
@@ -185,6 +191,10 @@ namespace Plaza
         {
             listaZawodnikow.Add(new Zawodnik(imie, nazwisko, rokUrodzenia, druzyna));
         }
+        /// <summary>
+        /// Usuwanie zawodnika
+        /// </summary>
+        /// <param name="zawodnik">zawodnik usuwany z listy</param>
         public void UsunZawodnika(Zawodnik zawodnik)
         {
             listaZawodnikow.Remove(zawodnik);

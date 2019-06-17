@@ -15,15 +15,33 @@ namespace Plaza
     /// </summary>
     class Druzyna
     {
+        /// <summary>
+        /// Cmienne wykorzystywane przy drużynie
+        /// </summary>
         protected string nazwa;
         protected int rokPowstania;
         protected string opis;
         protected int punkty;
 
+        /// <summary>
+        /// Konstruktor nazwy drużyny
+        /// </summary>
         public string Nazwa { get => nazwa; set { nazwa = value; } }
+        /// <summary>
+        /// zwracanie roku powstania drużyny
+        /// </summary>
         public int RokPowstania => rokPowstania;
+        /// <summary>
+        /// zwracanie opisu drużyny
+        /// </summary>
         public string Opis => opis;
+        /// <summary>
+        /// zwracanie punktów drużyny
+        /// </summary>
         public int Punkty => punkty;
+        /// <summary>
+        /// zwracanie "Drużyna"
+        /// </summary>
         public virtual string Sport => "Drużyna";
 
 

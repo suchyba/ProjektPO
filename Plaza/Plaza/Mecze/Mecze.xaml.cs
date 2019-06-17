@@ -125,7 +125,7 @@ namespace Plaza.Testowe_okna
             MeczeDataGrid.Items.Refresh();
         }
         /// <summary>
-        /// 
+        /// Combobox odpowiedzialny za wybieranie drużyn
         /// </summary>
         /// <param name="sender">parametr z  referencją do obiektu, który wywołuje wydarzenie</param>
         /// <param name="e">parametr zawierający dane wydarzenia</param>
@@ -150,17 +150,31 @@ namespace Plaza.Testowe_okna
                 SedziaPomocniczy2Combo.IsEnabled = true;
             }
         }
-
+        /// <summary>
+        /// Sterowanie możliwością generowania finałów i półfinałów
+        /// </summary>
+        /// <param name="sender">parametr z  referencją do obiektu, który wywołuje wydarzenie</param>
+        /// <param name="e">parametr zawierający dane wydarzenia</param>
         private void Sport_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             GenerujFinałyButt.IsEnabled = Sport.SelectedIndex == -1 ? false : true;
             GenerujPolfinalyButt.IsEnabled = Sport.SelectedIndex == -1 ? false : true;
         }
+        /// <summary>
+        /// Combobox odpowiedzialny za wyświetlanie listy sędziów
+        /// </summary>
+        /// <param name="sender">parametr z  referencją do obiektu, który wywołuje wydarzenie</param>
+        /// <param name="e">parametr zawierający dane wydarzenia</param>
         private void SedziowieCombo_Loaded(object sender, RoutedEventArgs e)
         {
             var combo = sender as ComboBox;
             combo.ItemsSource = StatycznaBazaWszytkichDanych.GetBaza().GetListaSedziow();
         }
+        /// <summary>
+        /// Combobox odpowiedzialny za wybieranie głównego sędziego
+        /// </summary>
+        /// <param name="sender">parametr z  referencją do obiektu, który wywołuje wydarzenie</param>
+        /// <param name="e">parametr zawierający dane wydarzenia</param>
 
         private void SedziaGlownyCombo_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
@@ -168,16 +182,30 @@ namespace Plaza.Testowe_okna
             SedziaPomocniczy2Combo.ItemsSource = StatycznaBazaWszytkichDanych.GetBaza().GetListaSedziow().Where(s => s != SedziaGlownyCombo.SelectedItem);
         }
 
+        /// <summary>
+        /// Combobox odpowiedzialny za wybieranie sędziego pomocniczego
+        /// </summary>
+        /// <param name="sender">parametr z  referencją do obiektu, który wywołuje wydarzenie</param>
+        /// <param name="e">parametr zawierający dane wydarzenia</param>
         private void SedziaPomocniczy1Combo_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             SedziaPomocniczy2Combo.ItemsSource = StatycznaBazaWszytkichDanych.GetBaza().GetListaSedziow().Where(s => s != SedziaGlownyCombo.SelectedItem && s != SedziaPomocniczy1Combo.SelectedItem);
         }
-
+        /// <summary>
+        /// Datagrid odpowiedzialny za mecze
+        /// </summary>
+        /// <param name="sender">parametr z  referencją do obiektu, który wywołuje wydarzenie</param>
+        /// <param name="e">parametr zawierający dane wydarzenia</param>
         private void MeczeDataGrid_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             RozegrajMczButt.IsEnabled = MeczeDataGrid.SelectedItems.Count > 0 && (MeczeDataGrid.SelectedItem as Mecz).GetWynik()[0] == -1 ? true : false;
         }
 
+        /// <summary>
+        /// Przycisk odpowiedzialny za rozgrywanie meczy
+        /// </summary>
+        /// <param name="sender">parametr z  referencją do obiektu, który wywołuje wydarzenie</param>
+        /// <param name="e">parametr zawierający dane wydarzenia</param>
         private void RozegrajMczButt_Click(object sender, RoutedEventArgs e)
         {
             RozegrajMecz rozegraj = new RozegrajMecz();
@@ -185,6 +213,11 @@ namespace Plaza.Testowe_okna
             MeczeDataGrid.SelectedItem = null;
         }
 
+        /// <summary>
+        /// Odświeżanie Datagrida meczy
+        /// </summary>
+        /// <param name="sender">parametr z  referencją do obiektu, który wywołuje wydarzenie</param>
+        /// <param name="e">parametr zawierający dane wydarzenia</param>
         private void Window_Activated(object sender, EventArgs e)
         {
             MeczeDataGrid.Items.Refresh();

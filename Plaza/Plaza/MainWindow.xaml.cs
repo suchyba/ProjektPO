@@ -32,7 +32,7 @@ namespace Plaza
             DruzynyDataGrid.ItemsSource = StatycznaBazaWszytkichDanych.GetBaza().GetListaDruzyn();
         }
         /// <summary>
-        /// 
+        /// Guzik odpowiedzialny za zatwierdzanie drużyny
         /// </summary>
         /// <param name="sender">parametr z  referencją do obiektu, który wywołuje wydarzenie</param>
         /// <param name="e">parametr zawierający dane wydarzenia</param>
@@ -65,7 +65,7 @@ namespace Plaza
             RokPowstaniaTxtBox.Text = null;
         }
         /// <summary>
-        /// Przycisk odpowiedzialny za odświeżanie datagrida
+        /// Przycisk odpowiedzialny za odświeżanie datagrida drużyny
         /// </summary>
         /// <param name="sender">parametr z  referencją do obiektu, który wywołuje wydarzenie</param>
         /// <param name="e">parametr zawierający dane wydarzenia</param>
@@ -129,7 +129,11 @@ namespace Plaza
             listaSportow.Add("Dwa Ognie");
             SportCombo.ItemsSource = listaSportow;
         }
-
+        /// <summary>
+        /// Włączanie i wyłączanie przycisku usuwania drużyny
+        /// </summary>
+        /// <param name="sender">parametr z  referencją do obiektu, który wywołuje wydarzenie</param>
+        /// <param name="e">parametr zawierający dane wydarzenia</param>
         private void DruzynyDataGrid_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             UsunButt.IsEnabled = DruzynyDataGrid.SelectedItems.Count > 0 ? true : false;

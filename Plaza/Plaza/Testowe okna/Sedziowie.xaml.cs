@@ -29,7 +29,7 @@ namespace Plaza.Testowe_okna
             SedziowieDataGrid.ItemsSource = StatycznaBazaWszytkichDanych.GetBaza().GetListaSedziow();
         }
         /// <summary>
-        /// 
+        /// Ładowanie okna
         /// </summary>
         /// <param name="sender">parametr z  referencją do obiektu, który wywołuje wydarzenie</param>
         /// <param name="e">parametr zawierający dane wydarzenia</param>
@@ -40,7 +40,7 @@ namespace Plaza.Testowe_okna
             // meczViewSource.Źródło = [ogólne źródło danych]
         }
         /// <summary>
-        /// 
+        /// Ładowanie okna
         /// </summary>
         /// <param name="sender">parametr z  referencją do obiektu, który wywołuje wydarzenie</param>
         /// <param name="e">parametr zawierający dane wydarzenia</param>
@@ -51,7 +51,11 @@ namespace Plaza.Testowe_okna
             // Załaduj dane poprzez ustawienie właściwości CollectionViewSource.Source:
             // sedziaViewSource.Źródło = [ogólne źródło danych]
         }
-
+        /// <summary>
+        /// Przycisk odpowiedzialny za dodawanie sędziego
+        /// </summary>
+        /// <param name="sender">parametr z  referencją do obiektu, który wywołuje wydarzenie</param>
+        /// <param name="e">parametr zawierający dane wydarzenia</param>
         private void DodajSedziegoButt_Click(object sender, RoutedEventArgs e)
         {
             StatycznaBazaWszytkichDanych.GetBaza().DodajSedziego(new Sedzia(Imie.Text, Nazwisko.Text, int.Parse(Wiek.Text), NumerLicencji.Text));
@@ -61,13 +65,21 @@ namespace Plaza.Testowe_okna
             NumerLicencji.Text = null;
             Wiek.Text = null;
         }
-
+        /// <summary>
+        /// Przycisk odpowiedzialny za usuwanie sędziego
+        /// </summary>
+        /// <param name="sender">parametr z  referencją do obiektu, który wywołuje wydarzenie</param>
+        /// <param name="e">parametr zawierający dane wydarzenia</param>
         private void UsunSedziegoButt_Click(object sender, RoutedEventArgs e)
         {
             StatycznaBazaWszytkichDanych.GetBaza().UsunSedziego((SedziowieDataGrid.SelectedItem as Sedzia).NumerLicencji);
             SedziowieDataGrid.Items.Refresh();
         }
-
+        /// <summary>
+        /// Działanie datagrida z sędziami
+        /// </summary>
+        /// <param name="sender">parametr z  referencją do obiektu, który wywołuje wydarzenie</param>
+        /// <param name="e">parametr zawierający dane wydarzenia</param>
         private void SedziowieDataGrid_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             UsunSedziegoButt.IsEnabled = SedziowieDataGrid.SelectedItems.Count > 0 ? true : false;

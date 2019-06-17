@@ -11,6 +11,9 @@ namespace Plaza
     /// </summary>
     class Sedzia
     {
+        /// <summary>
+        /// pola odpowiedzialne za sędziego
+        /// </summary>
         string imie;
         string nazwisko;
         int wiek;
@@ -32,12 +35,33 @@ namespace Plaza
             numerLicencji = num;
         }
 
+        /// <summary>
+        /// Zwracanie imienia
+        /// </summary>
         public string Imie => imie;
+        /// <summary>
+        /// Zwracanie nazwiska
+        /// </summary>
         public string Nazwisko => nazwisko;
+        /// <summary>
+        /// Zwracanie imienia oraz nazwiska
+        /// </summary>
         public string ImieNazwisko => imie + " " + nazwisko;
+        /// <summary>
+        /// Zwracanie wieku
+        /// </summary>
         public int Wiek => wiek;
+        /// <summary>
+        /// Zwracanie numeru licencji
+        /// </summary>
         public string NumerLicencji => numerLicencji;
+        /// <summary>
+        /// Zwracanie ilosci sędziowanych meczów
+        /// </summary>
         public int IloscSedziowanychMeczow => liczbaSedziowanychMeczow;
+        /// <summary>
+        /// Zwracanie zwiększonej liczby sędziowanych meczów
+        /// </summary>
         public void ZwiekszIloscMeczow() => ++liczbaSedziowanychMeczow;
     }
 }

@@ -12,12 +12,15 @@ namespace Plaza
     class DruzynaPrzeciaganieLiny : Druzyna
     {
         /// <summary>
+        /// Zwracanie sportu "Przeciąganie liny"
+        /// </summary>
+        public override string Sport => "Przeciąganie liny";
+        /// <summary>
         /// Budowa drużyny od przeciągania liny
         /// </summary>
         /// <param name="n">parametr określający nazwę drużyny od przeciągania liny</param>
         /// <param name="r">parametr określający rok powstania drużyny od przeciągania liny</param>
         /// <param name="o">parametr określający opis drużyny od przeciągania liny</param>
-        public override string Sport => "Przeciąganie liny";
         public DruzynaPrzeciaganieLiny(string n, int r, string o) : base(n, r, o)
         {
 

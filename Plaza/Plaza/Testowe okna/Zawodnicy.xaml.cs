@@ -71,7 +71,11 @@ namespace Plaza.Testowe_okna
             StatycznaBazaWszytkichDanych.GetBaza().UsunZawodnika(ZawodnicyDataGrid.SelectedItem as Zawodnik);
             ZawodnicyDataGrid.Items.Refresh();
         }
-
+        /// <summary>
+        /// Włączanie oraz wyłączanie guzika od dodawania zawodnika
+        /// </summary>
+        /// <param name="sender">parametr z  referencją do obiektu, który wywołuje wydarzenie</param>
+        /// <param name="e">parametr zawierający dane wydarzenia</param>
         private void Druzyna_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             DodajZawodnikaButt.IsEnabled = Druzyna.SelectedIndex == -1 ? false : true;

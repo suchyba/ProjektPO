@@ -12,6 +12,9 @@ namespace Plaza
     /// </summary>
     class Mecz
     {
+        /// <summary>
+        /// pola potrzebne do określenia meczu
+        /// </summary>
         protected Druzyna[] druzyny;
         protected Sedzia sedziaGlowny;
         protected int[] wynik;
@@ -79,7 +82,7 @@ namespace Plaza
             sd.ZwiekszIloscMeczow();
         }
         /// <summary>
-        /// 
+        /// Wyznaczanie wyników
         /// </summary>
         /// <param name="d1">parametr określający drużynę pierwszą</param>
         /// <param name="d2">parametr określający drużynę drugą</param>
