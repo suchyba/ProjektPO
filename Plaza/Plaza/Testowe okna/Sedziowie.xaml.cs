@@ -44,6 +44,10 @@ namespace Plaza.Testowe_okna
         {
             StatycznaBazaWszytkichDanych.GetBaza().DodajSedziego(new Sedzia(Imie.Text, Nazwisko.Text, int.Parse(Wiek.Text), NumerLicencji.Text));
             SedziowieDataGrid.Items.Refresh();
+            Imie.Text = null;
+            Nazwisko.Text = null;
+            NumerLicencji.Text = null;
+            Wiek.Text = null;
         }
 
         private void UsunSedziegoButt_Click(object sender, RoutedEventArgs e)

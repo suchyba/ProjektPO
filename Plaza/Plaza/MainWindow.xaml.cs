@@ -31,8 +31,31 @@ namespace Plaza
 
         private void ZatwierdzButt_Click(object sender, RoutedEventArgs e)
         {
-            StatycznaBazaWszytkichDanych.GetBaza().ZglosDruzyne(new DruzynaDwaOgnie(NazwaDruzynyTxtBox.Text, int.Parse(RokPowstaniaTxtBox.Text), OpisTxtBox.Text));
+            switch(SportCombo.SelectedIndex)
+            {
+                case 0:
+                    {
+                        StatycznaBazaWszytkichDanych.GetBaza().ZglosDruzyne(new DruzynaSiatkowka(NazwaDruzynyTxtBox.Text, int.Parse(RokPowstaniaTxtBox.Text), OpisTxtBox.Text));
+                        break;
+                    }
+                case 1:
+                    {
+                        StatycznaBazaWszytkichDanych.GetBaza().ZglosDruzyne(new DruzynaPrzeciaganieLiny(NazwaDruzynyTxtBox.Text, int.Parse(RokPowstaniaTxtBox.Text), OpisTxtBox.Text));
+                        break;
+                    }
+                case 2:
+                    {
+                        StatycznaBazaWszytkichDanych.GetBaza().ZglosDruzyne(new DruzynaDwaOgnie(NazwaDruzynyTxtBox.Text, int.Parse(RokPowstaniaTxtBox.Text), OpisTxtBox.Text));
+                        break;
+                    }
+                default:
+                    break;
+            }
             DruzynyDataGrid.Items.Refresh();
+            NazwaDruzynyTxtBox.Text = null;
+            OpisTxtBox.Text = null;
+            SportCombo.SelectedItem = null;
+            RokPowstaniaTxtBox.Text = null;
         }
 
         private void OdswiezButt_Click(object sender, RoutedEventArgs e)
@@ -42,7 +65,7 @@ namespace Plaza
 
         private void UsunButt_Click(object sender, RoutedEventArgs e)
         {
-            StatycznaBazaWszytkichDanych.GetBaza().WycofajDruzyne(NazwaDruzynyTxtBox.Text);
+            StatycznaBazaWszytkichDanych.GetBaza().WycofajDruzyne(DruzynyDataGrid.SelectedItem as Druzyna);
             DruzynyDataGrid.Items.Refresh();
         }
 
@@ -68,6 +91,16 @@ namespace Plaza
             System.Windows.Data.CollectionViewSource druzynaViewSource = ((System.Windows.Data.CollectionViewSource)(this.FindResource("druzynaViewSource")));
             // Załaduj dane poprzez ustawienie właściwości CollectionViewSource.Source:
             // druzynaViewSource.Źródło = [ogólne źródło danych]
+            List<string> listaSportow = new List<string>();
+            listaSportow.Add("Siatkówka");
+            listaSportow.Add("Przeciąganie Liny");
+            listaSportow.Add("Dwa Ognie");
+            SportCombo.ItemsSource = listaSportow;
+        }
+
+        private void DruzynyDataGrid_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            UsunButt.IsEnabled = DruzynyDataGrid.SelectedItems.Count > 0 ? true : false;
         }
     }
 }

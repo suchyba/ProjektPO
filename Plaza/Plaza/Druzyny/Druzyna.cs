@@ -24,6 +24,7 @@ namespace Plaza
         public int RokPowstania => rokPowstania;
         public string Opis => opis;
         public int Punkty => punkty;
+        public virtual string Sport => "Drużyna";
 
 
 

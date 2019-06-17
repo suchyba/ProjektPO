@@ -30,8 +30,8 @@ namespace Plaza
         /// <summary>
         /// Usuwanie dru¿yny
         /// </summary>
-        /// <param name="nazwa">parametr okreœlaj¹cy nazwê dru¿yny</param>
-        public void WycofajDruzyne(string nazwa) => listaDruzyn.Remove(listaDruzyn.Where(d => d.GetNazwa() == nazwa).FirstOrDefault());
+        /// <param name="druzyna">parametr okreœlaj¹cy dru¿ynê</param>
+        public void WycofajDruzyne(Druzyna druzyna) => listaDruzyn.Remove(druzyna);
         /// <summary>
         /// Pobieranie listy dru¿yn
         /// </summary>
@@ -181,7 +181,11 @@ namespace Plaza
         /// <param name="nazwisko">nazwisko zawodnika</param>
         /// <param name="dataUrodzenia">data urodzenia zawodnika</param>
         /// <param name="druzyna">dru¿yna, do której nale¿y zawodnik</param>
-        public void DodajZawodnika(string imie, string nazwisko, DateTime dataUrodzenia, Druzyna druzyna)
+        public void DodajZawodnika(string imie, string nazwisko, int rokUrodzenia, Druzyna druzyna)
+        {
+            listaZawodnikow.Add(new Zawodnik(imie, nazwisko, rokUrodzenia, druzyna));
+        }
+        public void UsunZawodnika(Zawodnik zawodnik)
         {
             listaZawodnikow.Remove(zawodnik);
         }

@@ -11,6 +11,7 @@ namespace Plaza
     /// </summary>
     class DruzynaSiatkowka : Druzyna
     {
+        public override string Sport => "Siatkówka";
         public DruzynaSiatkowka(string n, int r, string o) : base(n, r, o)
         {
 
