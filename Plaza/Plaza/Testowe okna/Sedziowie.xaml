@@ -13,7 +13,7 @@
         <CollectionViewSource x:Key="sedziaViewSource" d:DesignSource="{d:DesignInstance {x:Type Plaza:Sedzia}, CreateList=True}"/>
     </Window.Resources>
     <Grid DataContext="{StaticResource sedziaViewSource}">
-        <DataGrid x:Name="SedziowieDataGrid" HorizontalAlignment="Left" Height="350" Margin="400,30,0,0" VerticalAlignment="Top" Width="350" AutoGenerateColumns="False" ItemsSource="{Binding}">
+        <DataGrid x:Name="SedziowieDataGrid" HorizontalAlignment="Left" Height="399" Margin="382,10,0,0" VerticalAlignment="Top" Width="400" AutoGenerateColumns="False" ItemsSource="{Binding}">
             <DataGrid.Columns>
                 <DataGridTextColumn ClipboardContentBinding="{x:Null}" Header="Imię" IsReadOnly="True" Binding="{Binding Imie}"/>
                 <DataGridTextColumn ClipboardContentBinding="{x:Null}" Header="Nazwisko" IsReadOnly="True" Binding="{Binding Nazwisko}"/>
@@ -22,18 +22,13 @@
                 <DataGridTextColumn ClipboardContentBinding="{x:Null}" Header="Liczba Meczy " IsReadOnly="True" Binding="{Binding IloscSedziowanychMeczow}"/>
             </DataGrid.Columns>
         </DataGrid>
-        <Button x:Name="DodajSedziegoButt" Content="Dodaj" HorizontalAlignment="Left" Margin="280,10,0,0" VerticalAlignment="Top" Width="75"/>
-        <Button x:Name="UsunSedziegoButt" Content="Usuń" HorizontalAlignment="Left" Margin="280,35,0,0" VerticalAlignment="Top" Width="75"/>
-        <TextBox x:Name="Imie" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Margin="110,10,0,0"/>
-        <TextBox x:Name="Nazwisko" HorizontalAlignment="Left" Height="23" Margin="110,38,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
-        <TextBox x:Name="Wiek" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Margin="110,66,0,0"/>
-        <TextBox x:Name="NumerLicencji" HorizontalAlignment="Left" Height="23" Margin="110,94,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
-        <TextBox x:Name="LiczbaMeczy" HorizontalAlignment="Left" Height="23" Margin="110,122,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
-        <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="Imię:" VerticalAlignment="Top" Margin="10,17,0,0"/>
-        <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="Nazwisko:" VerticalAlignment="Top" Margin="10,45,0,0"/>
-        <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="Wiek:" VerticalAlignment="Top" Margin="10,73,0,0"/>
-        <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="Numer licencji:" VerticalAlignment="Top" Margin="10,101,0,0"/>
-        <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="Liczba meczy:" VerticalAlignment="Top" Margin="10,129,0,0"/>
+        <Button x:Name="DodajSedziegoButt" Content="Dodaj" HorizontalAlignment="Left" Margin="61,258,0,0" VerticalAlignment="Top" Width="75"/>
+        <Button x:Name="UsunSedziegoButt" Content="Usuń" HorizontalAlignment="Left" Margin="239,258,0,0" VerticalAlignment="Top" Width="75"/>
+        <TextBox x:Name="Imie" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" Text="Imię" VerticalAlignment="Top" Width="120" Margin="10,10,0,0"/>
+        <TextBox x:Name="Nazwisko" HorizontalAlignment="Left" Height="23" Margin="10,38,0,0" TextWrapping="Wrap" Text="Nazwisko" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="Wiek" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" Text="Wiek" VerticalAlignment="Top" Width="120" Margin="10,66,0,0"/>
+        <TextBox x:Name="NumerLicencji" HorizontalAlignment="Left" Height="23" Margin="10,94,0,0" TextWrapping="Wrap" Text="Numer Licencji" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="LiczbaMeczy" HorizontalAlignment="Left" Height="23" Margin="10,122,0,0" TextWrapping="Wrap" Text="Liczba meczy" VerticalAlignment="Top" Width="120"/>
 
     </Grid>
 </Window>

@@ -84,7 +84,10 @@ namespace Plaza
         /// <summary>
         /// 
         /// </summary>
-        /// <returns>zwraca "Drużyna"</returns>
-        public override string ToString() => "Drużyna";
+        /// <returns></returns>
+        public override string ToString()
+        {
+            return "Drużyna";
+        }
     }
 }

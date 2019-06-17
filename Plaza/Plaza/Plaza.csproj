@@ -78,9 +78,6 @@
     <Compile Include="Testowe okna\Sedziowie.xaml.cs">
       <DependentUpon>Sedziowie.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Testowe okna\Window1.xaml.cs">
-      <DependentUpon>Window1.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Testowe okna\Zawodnicy.xaml.cs">
       <DependentUpon>Zawodnicy.xaml</DependentUpon>
     </Compile>
@@ -123,10 +120,6 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Testowe okna\Sedziowie.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Testowe okna\Window1.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

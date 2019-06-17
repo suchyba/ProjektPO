@@ -13,7 +13,7 @@ namespace Plaza
         List<Zawodnik> listaZawodnikow;
         List<Sedzia> listaSedziow;
         /// <summary>
-        /// Baza danych z listami dru¿yn, meczów, zawodników, sêdziów
+        /// Baza z listami dru¿yn, meczów, zawodników, sêdziów
         /// </summary>
         public BazaDanych()
         {
