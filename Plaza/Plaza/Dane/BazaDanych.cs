@@ -122,5 +122,6 @@ namespace Plaza
         public void UsunSedziego(string numerLicencji) => listaSedziow.Remove(listaSedziow.Where(s => s.NumerLicencji== numerLicencji).FirstOrDefault());
         public List<Mecz> GetListaMeczy() => listaMeczy;
         public List<Sedzia> GetListaSedziow() => listaSedziow;
+        public List<Zawodnik> GetListaZawodnikow() => listaZawodnikow;
     }
 }

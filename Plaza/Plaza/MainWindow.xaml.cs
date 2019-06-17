@@ -52,6 +52,17 @@ namespace Plaza
             meczeOkno.Show();
         }
 
+        private void ZawodnicyButt_Click(object sender, RoutedEventArgs e)
+        {
+            Zawodnicy zawodnicyOkno = new Zawodnicy();
+            zawodnicyOkno.Show();
+        }
+        private void SedziowieButt_Click(object sender, RoutedEventArgs e)
+        {
+            Sedziowie sedziowieOkno = new Sedziowie();
+            sedziowieOkno.Show();
+        }
+
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
             System.Windows.Data.CollectionViewSource druzynaViewSource = ((System.Windows.Data.CollectionViewSource)(this.FindResource("druzynaViewSource")));

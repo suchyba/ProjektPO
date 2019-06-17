@@ -12,12 +12,14 @@
     </Window.Resources>
     <Grid DataContext="{StaticResource bazaDruzynViewSource}">
         <Button x:Name="ZatwierdzButt" Content="Dodaj" HorizontalAlignment="Left" Margin="80,325,0,0" VerticalAlignment="Top" Width="75" Click="ZatwierdzButt_Click"/>
+        <Button x:Name="UsunButt" Content="Usuń" HorizontalAlignment="Left" Margin="197,325,0,0" VerticalAlignment="Top" Width="75" Click="UsunButt_Click"/>
+        <Button x:Name="OdswiezButt" Content="Odśwież" HorizontalAlignment="Left" Margin="314,325,0,0" VerticalAlignment="Top" Width="75" Click="OdswiezButt_Click"/>
+        <Button x:Name="MeczeButt" Content="Mecze" HorizontalAlignment="Left" Margin="80,369,0,0" VerticalAlignment="Top" Width="75" Click="MeczeButt_Click"/>
+        <Button x:Name="ZawodnicyButt" Content="Zawodnicy" HorizontalAlignment="Left" Margin="197,369,0,0" VerticalAlignment="Top" Width="75" Click="ZawodnicyButt_Click"/>
+        <Button x:Name="SedziowieButt" Content="Sędziowie" HorizontalAlignment="Left" Margin="314,369,0,0" VerticalAlignment="Top" Width="75" Click="SedziowieButt_Click"/>
         <TextBox x:Name="NazwaDruzynyTxtBox" HorizontalAlignment="Left" Height="23" Margin="80,57,0,0" TextWrapping="Wrap" Text="Nazwa" VerticalAlignment="Top" Width="120"/>
         <TextBox x:Name="RokPowstaniaTxtBox" HorizontalAlignment="Left" Height="23" Margin="80,108,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Text="2019"/>
         <TextBox x:Name="OpisTxtBox" HorizontalAlignment="Left" Height="23" Margin="80,162,0,0" TextWrapping="Wrap" Text="Opis" VerticalAlignment="Top" Width="120" SpellCheck.IsEnabled="True" AcceptsReturn="True"/>
-        <Button x:Name="OdswiezButt" Content="Odśwież" HorizontalAlignment="Left" Margin="314,325,0,0" VerticalAlignment="Top" Width="75" Click="OdswiezButt_Click"/>
-        <Button x:Name="UsunButt" Content="Usuń" HorizontalAlignment="Left" Margin="197,325,0,0" VerticalAlignment="Top" Width="75" Click="UsunButt_Click"/>
-        <Button x:Name="MeczeButt" Content="Mecze" HorizontalAlignment="Left" Margin="80,369,0,0" VerticalAlignment="Top" Width="75" Click="MeczeButt_Click"/>
         <DataGrid x:Name="DruzynyDataGrid" Margin="223,44,30,120" ItemsSource="{Binding Source={StaticResource druzynaViewSource}}" AutoGenerateColumns="False">
             <DataGrid.Columns>
                 <DataGridTextColumn Binding="{Binding Nazwa}" ClipboardContentBinding="{x:Null}"/>

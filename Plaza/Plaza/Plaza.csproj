@@ -75,6 +75,12 @@
     <Compile Include="Testowe okna\Mecze.xaml.cs">
       <DependentUpon>Mecze.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Testowe okna\Sedziowie.xaml.cs">
+      <DependentUpon>Sedziowie.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Testowe okna\Zawodnicy.xaml.cs">
+      <DependentUpon>Zawodnicy.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Zawodnik.cs" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -110,6 +116,14 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Testowe okna\Mecze.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Testowe okna\Sedziowie.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Testowe okna\Zawodnicy.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
