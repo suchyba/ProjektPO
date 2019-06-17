@@ -119,7 +119,7 @@ namespace Plaza
         public void DodajMecz(Mecz m) => listaMeczy.Add(m);
         public void RozegrajMecz(int numerMeczu, int w1, int w2) => listaMeczy[numerMeczu].UstawWyniki(w1, w2);
         public void DodajSedziego(Sedzia s) => listaSedziow.Add(s);
-        public void UsunSedziego(string numerLicencji) => listaSedziow.Remove(listaSedziow.Where(s => s.NumerLicencji== numerLicencji).FirstOrDefault());
+        public void UsunSedziego(string numerLicencji) => listaSedziow.Remove(listaSedziow.Where(s => s.GetNumerLicencji() == numerLicencji).FirstOrDefault());
         public List<Mecz> GetListaMeczy() => listaMeczy;
         public List<Sedzia> GetListaSedziow() => listaSedziow;
     }

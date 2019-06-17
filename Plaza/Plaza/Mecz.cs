@@ -14,34 +14,6 @@ namespace Plaza
         protected int[] wynik;
         protected int stopienMeczu;
 
-        public Druzyna DruzynaPierwsza { get => druzyny[0]; }
-        public Druzyna DruzynaDruga { get => druzyny[1]; }
-        public Sedzia SedziaGlowny { get => sedziaGlowny; }
-        public string WynikString { get => wynik[0] + " : " + wynik[1]; }
-        public string StopienMeczuString
-        {
-            get
-            {
-                switch (stopienMeczu)
-                {
-                    case 0:
-                        {
-                            return "Mecz Ligowy";
-                        }
-                    case 1:
-                        {
-                            return "Mecz Półfinałowy";
-                        }
-                    case 2:
-                        {
-                            return "Mecz Finałowy";
-                        }
-                    default:
-                        return "";
-                }
-            }
-        }
-
         public Mecz(Druzyna d1, Druzyna d2, Sedzia sd, int stM)
         {
             druzyny = new Druzyna[2];
@@ -69,15 +41,13 @@ namespace Plaza
             }
         }
         public Druzyna[] GetDruzyny() => druzyny;
-        
+        public Sedzia GetSedziaGlowny() => sedziaGlowny;
         public int[] GetWynik() => wynik;
-        
         public void UstawWyniki(int w1, int w2)
         {
             wynik[0] = w1;
             wynik[1] = w2;
         }
         public int GetStopienMeczu() => stopienMeczu;
-        
     }
 }

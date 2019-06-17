@@ -22,11 +22,22 @@ namespace Plaza
             numerLicencji = num;
         }
 
-        public string Imie => imie;
-        public string Nazwisko => nazwisko;
-        public string ImieNazwisko => imie + " " + nazwisko;
-        public int Wiek => wiek;
-        public string NumerLicencji => numerLicencji;
-        public int IloscSedziowanychMeczow => liczbaSedziowanychMeczow;
+        public string GetImie()
+        {
+            return imie;
+        }
+        public string GetNazwisko()
+        {
+            return nazwisko;
+        }
+        public int GetWiek()
+        {
+            return wiek;
+        }
+        public string GetNumerLicencji()
+        {
+            return numerLicencji;
+        }
+        public int GetIloscSedziowanychMeczow() => liczbaSedziowanychMeczow;
     }
 }
