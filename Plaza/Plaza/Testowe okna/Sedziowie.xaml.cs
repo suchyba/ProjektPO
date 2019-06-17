@@ -39,5 +39,17 @@ namespace Plaza.Testowe_okna
             // Załaduj dane poprzez ustawienie właściwości CollectionViewSource.Source:
             // sedziaViewSource.Źródło = [ogólne źródło danych]
         }
+
+        private void DodajSedziegoButt_Click(object sender, RoutedEventArgs e)
+        {
+            StatycznaBazaWszytkichDanych.GetBaza().DodajSedziego(new Sedzia(Imie.Text, Nazwisko.Text, int.Parse(Wiek.Text), NumerLicencji.Text));
+            SedziowieDataGrid.Items.Refresh();
+        }
+
+        private void UsunSedziegoButt_Click(object sender, RoutedEventArgs e)
+        {
+            StatycznaBazaWszytkichDanych.GetBaza().UsunSedziego((SedziowieDataGrid.SelectedItem as Sedzia).NumerLicencji);
+            SedziowieDataGrid.Items.Refresh();
+        }
     }
 }
