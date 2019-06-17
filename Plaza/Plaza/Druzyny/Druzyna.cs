@@ -11,7 +11,7 @@ namespace Plaza
         Siatkowka = 0, PrzeciaganieLiny = 1, DwaOgnie = 2
     }
     /// <summary>
-    /// 
+    /// Klasa określająca drużyny
     /// </summary>
     class Druzyna
     {
@@ -28,11 +28,11 @@ namespace Plaza
 
 
         /// <summary>
-        /// 
+        /// Budowa drużyny
         /// </summary>
-        /// <param name="n"></param>
-        /// <param name="r"></param>
-        /// <param name="o"></param>
+        /// <param name="n">parametr określający nazwę drużyny</param>
+        /// <param name="r">parametr określający rok powstania drużyny</param>
+        /// <param name="o">parametr określający opis drużyny</param>
         public Druzyna(string n, int r, string o)
         {
             nazwa = n;
@@ -40,42 +40,42 @@ namespace Plaza
             opis = o;
         }
         /// <summary>
-        /// 
+        /// Pobieranie nazwy drużyny
         /// </summary>
-        /// <returns></returns>
+        /// <returns>zwraca nazwę drużyny</returns>
         public string GetNazwa() => nazwa;
         /// <summary>
-        /// 
+        /// Pobieranie opisu drużyny
         /// </summary>
-        /// <returns></returns>
+        /// <returns>zwraca opis drużyny</returns>
         public string GetOpis() => opis;
         /// <summary>
-        /// 
+        /// Pobieranie roku powstania drużyny
         /// </summary>
-        /// <returns></returns>
+        /// <returns>zwraca rok powstania drużyny</returns>
         public int GetRokPowstania() => rokPowstania;
         /// <summary>
-        /// 
+        /// Aktualizacja opisu drużyny
         /// </summary>
-        /// <param name="nowyOpis"></param>
+        /// <param name="nowyOpis">parametr określający nowy opis drużyny</param>
         public void AktualizujOpis(string nowyOpis)
         {
             opis = nowyOpis;
         }
         /// <summary>
-        /// 
+        /// Pobieranie liczby punktów
         /// </summary>
-        /// <returns></returns>
+        /// <returns>zwraca liczbę punktów drużyny</returns>
         public int GetPunkty() => punkty;
         /// <summary>
-        /// 
+        /// Dodawanie punktów za zwycięstwo
         /// </summary>
         public void DodajZwycięztwo()
         {
             punkty += 2;
         }
         /// <summary>
-        /// 
+        /// Dodawanie punktów za remis
         /// </summary>
         public void DodajRemis()
         {

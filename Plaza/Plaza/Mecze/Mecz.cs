@@ -7,6 +7,9 @@ using System.Threading.Tasks;
 namespace Plaza
 {
     enum StopienMeczu { MeczLigowy = 0, MeczPolfinalowy = 1, MeczFinalowy = 2};
+    /// <summary>
+    /// Klasa opisująca mecze
+    /// </summary>
     class Mecz
     {
         protected Druzyna[] druzyny;
@@ -14,10 +17,25 @@ namespace Plaza
         protected int[] wynik;
         protected int stopienMeczu;
 
+        /// <summary>
+        /// Pobieranie drużyny pierwszej dla meczu
+        /// </summary>
         public Druzyna DruzynaPierwsza { get => druzyny[0]; }
+        /// <summary>
+        /// Pobieranie drużyny drugiej dla meczu
+        /// </summary>
         public Druzyna DruzynaDruga { get => druzyny[1]; }
+        /// <summary>
+        /// Pobieranie sędziego głównego dla meczu
+        /// </summary>
         public Sedzia SedziaGlowny { get => sedziaGlowny; }
+        /// <summary>
+        /// Pobieranie wyniku meczu 
+        /// </summary>
         public string WynikString { get => wynik[0] + " : " + wynik[1]; }
+        /// <summary>
+        /// Określanie stopnia meczu
+        /// </summary>
         public string StopienMeczuString
         {
             get
@@ -42,6 +60,13 @@ namespace Plaza
             }
         }
 
+        /// <summary>
+        /// Budowa meczu
+        /// </summary>
+        /// <param name="d1">parametr określający drużynę pierwszą</param>
+        /// <param name="d2">parametr określający drużynę drugą</param>
+        /// <param name="sd">parametr określający sędziego głównego</param>
+        /// <param name="stM">parametr określający stopień meczu</param>
         public Mecz(Druzyna d1, Druzyna d2, Sedzia sd, int stM)
         {
             druzyny = new Druzyna[2];
@@ -52,6 +77,15 @@ namespace Plaza
             wynik = new int[2];
             sd.ZwiekszIloscMeczow();
         }
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="d1">parametr określający drużynę pierwszą</param>
+        /// <param name="d2">parametr określający drużynę drugą</param>
+        /// <param name="sd">parametr określający sędziego głównego</param>
+        /// <param name="stM">parametr określający stopień meczu</param>
+        /// <param name="w1">parametr określający wynik drużyny pierwszej</param>
+        /// <param name="w2">parametr określający wynik drużyny drugiej</param>
         public Mecz(Druzyna d1, Druzyna d2, Sedzia sd, int stM, int w1, int w2) : this(d1, d2, sd, stM)
         {
             wynik[0] = w1;
@@ -69,10 +103,21 @@ namespace Plaza
                 }
             }
         }
+        /// <summary>
+        /// Pobieranie drużyn
+        /// </summary>
+        /// <returns>zwraca drużyny</returns>
         public Druzyna[] GetDruzyny() => druzyny;
-        
+        /// <summary>
+        /// Pobieranie wyniku meczu
+        /// </summary>
+        /// <returns>zwraca wynik meczu</returns>
         public int[] GetWynik() => wynik;
-        
+        /// <summary>
+        /// Ustawianie wyników
+        /// </summary>
+        /// <param name="w1">parametr określający wynik pierwszy</param>
+        /// <param name="w2">parametr określający wynik drugi</param>
         public void UstawWyniki(int w1, int w2)
         {
             wynik[0] = w1;
@@ -90,6 +135,10 @@ namespace Plaza
                 }
             }
         }
+        /// <summary>
+        /// Pobieranie stopnia meczu
+        /// </summary>
+        /// <returns>zwraca stopień rozgrywanego meczu</returns>
         public int GetStopienMeczu() => stopienMeczu;
         
     }
