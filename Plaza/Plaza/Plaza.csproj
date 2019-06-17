@@ -55,7 +55,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="MeczSiatkowki.cs" />
+    <Compile Include="Mecze\MeczSiatkowki.cs" />
     <Compile Include="ModyfikacjaDruzyny.xaml.cs">
       <DependentUpon>ModyfikacjaDruzyny.xaml</DependentUpon>
     </Compile>
@@ -68,13 +68,7 @@
     <Compile Include="OknoGlowne.xaml.cs">
       <DependentUpon>OknoGlowne.xaml</DependentUpon>
     </Compile>
-    <Compile Include="DruzynaComparer.cs" />
     <Compile Include="Sedzia.cs" />
-    <Compile Include="SedziaComparer.cs" />
-    <Compile Include="Technologie Testowe\StatycznaBazaWszytkichDanych.cs" />
-    <Compile Include="Testowe okna\Mecze.xaml.cs">
-      <DependentUpon>Mecze.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Zawodnik.cs" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -84,7 +78,7 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="BazaDanych.cs" />
+    <Compile Include="BazaDruzyn.cs" />
     <Compile Include="Druzyna.cs" />
     <Compile Include="DruzynaDwaOgnie.cs" />
     <Compile Include="DruzynaPrzeciaganieLiny.cs" />
@@ -109,13 +103,9 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Testowe okna\Mecze.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Mecz.cs" />
+    <Compile Include="Mecze\Mecz.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
