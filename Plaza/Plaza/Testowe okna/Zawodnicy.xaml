@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:Plaza.Testowe_okna"
         xmlns:Plaza="clr-namespace:Plaza" x:Class="Plaza.Testowe_okna.Zawodnicy"
         mc:Ignorable="d"
-        Title="Zawodnicy" Height="450" Width="800" Loaded="Window_Loaded">
+        Title="Zawodnicy" Height="406" Width="800" Loaded="Window_Loaded">
     <Window.Resources>
         <CollectionViewSource x:Key="bazaDanychViewSource"/>
         <CollectionViewSource x:Key="statycznaBazaWszytkichDanychViewSource"/>
@@ -14,20 +14,24 @@
         <CollectionViewSource x:Key="druzynaViewSource" d:DesignSource="{d:DesignInstance {x:Type Plaza:Druzyna}, CreateList=True}"/>
     </Window.Resources>
     <Grid DataContext="{StaticResource zawodnikViewSource}">
-        <DataGrid x:Name="ZawodnicyDataGrid" HorizontalAlignment="Left" Height="399" Margin="350,10,0,0" VerticalAlignment="Top" Width="432" ItemsSource="{Binding}" AutoGenerateColumns="False">
+        <DataGrid x:Name="ZawodnicyDataGrid" HorizontalAlignment="Left" Height="327" Margin="350,10,0,0" VerticalAlignment="Top" Width="400" ItemsSource="{Binding}" AutoGenerateColumns="False">
             <DataGrid.Columns>
                 <DataGridTextColumn ClipboardContentBinding="{x:Null}" Header="Imię" IsReadOnly="True" Binding="{Binding Imie}"/>
                 <DataGridTextColumn ClipboardContentBinding="{x:Null}" Header="Nazwisko" IsReadOnly="True" Binding="{Binding Nazwisko}"/>
-                <DataGridTextColumn ClipboardContentBinding="{x:Null}" Header="Data Urodzenia" IsReadOnly="True" Binding="{Binding DataUrodzenia}"/>
+                <DataGridTextColumn ClipboardContentBinding="{x:Null}" Header="Rok Urodzenia" IsReadOnly="True" Binding="{Binding RokUrodzenia}"/>
                 <DataGridTextColumn ClipboardContentBinding="{x:Null}" Header="Drużyna" IsReadOnly="True" Binding="{Binding Druzyna.Nazwa}"/>
             </DataGrid.Columns>
         </DataGrid>
-        <Button x:Name="DodajZawodnikaButt" Content="Dodaj" HorizontalAlignment="Left" Margin="50,317,0,0" VerticalAlignment="Top" Width="75" Click="DodajZawodnikaButt_Click"/>
-        <Button x:Name="UsunZawodnikaButt" Content="Usuń" HorizontalAlignment="Left" Margin="200,317,0,0" VerticalAlignment="Top" Width="75" Click="UsunZawodnikaButt_Click"/>
-        <TextBox x:Name="Imie" HorizontalAlignment="Left" Height="23" Margin="50,50,0,0" TextWrapping="Wrap" Text="Imię" VerticalAlignment="Top" Width="120"/>
-        <TextBox x:Name="Nazwisko" HorizontalAlignment="Left" Height="23" Margin="50,100,0,0" TextWrapping="Wrap" Text="Nazwisko" VerticalAlignment="Top" Width="120"/>
-        <TextBox x:Name="DataUrodzenia" HorizontalAlignment="Left" Height="23" Margin="50,150,0,0" TextWrapping="Wrap" Text="Rok Urodzenia" VerticalAlignment="Top" Width="120"/>
-        <ComboBox x:Name="Druzyna" Loaded ="DruzynyCombo_Loaded" HorizontalAlignment="Left" Margin="200,50,0,0" VerticalAlignment="Top" Width="120" DisplayMemberPath="Nazwa" ItemsSource="{Binding Source={StaticResource druzynaViewSource}}" SelectedValuePath="Nazwa"/>
+        <Button x:Name="DodajZawodnikaButt" Content="Dodaj" HorizontalAlignment="Left" Margin="50,317,0,0" VerticalAlignment="Top" Width="75" Click="DodajZawodnikaButt_Click" IsEnabled="False"/>
+        <Button x:Name="UsunZawodnikaButt" Content="Usuń" HorizontalAlignment="Left" Margin="200,317,0,0" VerticalAlignment="Top" Width="75" Click="UsunZawodnikaButt_Click" IsEnabled="False"/>
+        <TextBox x:Name="Imie" HorizontalAlignment="Left" Height="23" Margin="155,50,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="Nazwisko" HorizontalAlignment="Left" Height="23" Margin="155,100,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="DataUrodzenia" HorizontalAlignment="Left" Height="23" Margin="155,150,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <ComboBox x:Name="Druzyna" Loaded ="DruzynyCombo_Loaded" HorizontalAlignment="Left" Margin="155,200,0,0" VerticalAlignment="Top" Width="120" DisplayMemberPath="Nazwa" ItemsSource="{Binding Source={StaticResource druzynaViewSource}}" SelectedValuePath="Nazwa" SelectionChanged="Druzyna_SelectionChanged" Height="23"/>
+        <Label Content="Imię" HorizontalAlignment="Left" Margin="29,50,0,0" VerticalAlignment="Top" Width="96" Height="35"/>
+        <Label Content="Nazwisko" HorizontalAlignment="Left" Margin="29,100,0,0" VerticalAlignment="Top" Width="96" Height="23"/>
+        <Label Content="Rok Urodzenia" HorizontalAlignment="Left" Margin="29,150,0,0" VerticalAlignment="Top" Width="96" Height="33"/>
+        <Label Content="Drużyna" HorizontalAlignment="Left" Margin="29,200,0,0" VerticalAlignment="Top" Width="96" Height="40"/>
 
     </Grid>
 </Window>

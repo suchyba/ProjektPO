@@ -183,7 +183,7 @@ namespace Plaza
         /// <param name="druzyna">dru¿yna, do której nale¿y zawodnik</param>
         public void DodajZawodnika(string imie, string nazwisko, DateTime dataUrodzenia, Druzyna druzyna)
         {
-            listaZawodnikow.Add(new Zawodnik(imie, nazwisko, dataUrodzenia, druzyna));
+            listaZawodnikow.Remove(zawodnik);
         }
     }
 }
