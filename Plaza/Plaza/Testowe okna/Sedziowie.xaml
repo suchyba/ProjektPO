@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:Plaza.Testowe_okna"
         xmlns:Plaza="clr-namespace:Plaza" x:Class="Plaza.Testowe_okna.Sedziowie"
         mc:Ignorable="d"
-        Title="Sedziowie" Height="344.55" Width="800" Loaded="Window_Loaded_1">
+        Title="Sedziowie" Height="344.55" Width="800" Loaded="Window_Loaded_1" Activated="Window_Activated">
     <Window.Resources>
         <CollectionViewSource x:Key="bazaDanychViewSource"/>
         <CollectionViewSource x:Key="statycznaBazaWszytkichDanychViewSource"/>

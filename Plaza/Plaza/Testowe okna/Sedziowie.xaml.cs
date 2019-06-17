@@ -72,5 +72,10 @@ namespace Plaza.Testowe_okna
         {
             UsunSedziegoButt.IsEnabled = SedziowieDataGrid.SelectedItems.Count > 0 ? true : false;
         }
+
+        private void Window_Activated(object sender, EventArgs e)
+        {
+            SedziowieDataGrid.Items.Refresh();
+        }
     }
 }

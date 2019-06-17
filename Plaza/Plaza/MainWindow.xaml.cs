@@ -28,7 +28,6 @@ namespace Plaza
         public MainWindow()
         {
             InitializeComponent();
-            StatycznaBazaWszytkichDanych.GetBaza().DodajSedziego(new Sedzia("Bartek", "Konopka", 20, "EXC2003"));
             DruzynyDataGrid.ItemsSource = StatycznaBazaWszytkichDanych.GetBaza().GetListaDruzyn();
         }
         /// <summary>
@@ -133,6 +132,11 @@ namespace Plaza
         private void DruzynyDataGrid_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             UsunButt.IsEnabled = DruzynyDataGrid.SelectedItems.Count > 0 ? true : false;
+        }
+
+        private void Window_Activated(object sender, EventArgs e)
+        {
+            DruzynyDataGrid.Items.Refresh();
         }
     }
 }
