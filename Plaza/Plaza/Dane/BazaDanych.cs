@@ -61,6 +61,10 @@ namespace Plaza
             }
             
         }
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="sport">Sport dla którego generujemy pó³fina³y</param>
         public void GenerujPolfinaly(Sporty sport)
         {
             listaDruzyn.Sort(new DruzynaComparer());
@@ -116,11 +120,25 @@ namespace Plaza
                     return;
             }
         }
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="m"></param>
         public void DodajMecz(Mecz m) => listaMeczy.Add(m);
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="numerMeczu"></param>
+        /// <param name="w1"></param>
+        /// <param name="w2"></param>
         public void RozegrajMecz(int numerMeczu, int w1, int w2) => listaMeczy[numerMeczu].UstawWyniki(w1, w2);
         public void DodajSedziego(Sedzia s) => listaSedziow.Add(s);
         public void UsunSedziego(string numerLicencji) => listaSedziow.Remove(listaSedziow.Where(s => s.NumerLicencji== numerLicencji).FirstOrDefault());
         public List<Mecz> GetListaMeczy() => listaMeczy;
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
         public List<Sedzia> GetListaSedziow() => listaSedziow;
         public List<Zawodnik> GetListaZawodnikow() => listaZawodnikow;
         public void DodajZawodnika(string imie, string nazwisko, DateTime dataUrodzenia, Druzyna druzyna)

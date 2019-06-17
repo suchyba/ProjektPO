@@ -24,6 +24,10 @@ namespace Plaza.Testowe_okna
         {
             InitializeComponent();
             MeczeDataGrid.ItemsSource = StatycznaBazaWszytkichDanych.GetBaza().GetListaMeczy();
+            List<string> lista = new List<string>();
+            lista.Add("1");
+            lista.Add("2");
+            Test.ItemsSource = lista;
         }
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
@@ -54,7 +58,12 @@ namespace Plaza.Testowe_okna
 
         private void GenerujPolfinalyButt_Click(object sender, RoutedEventArgs e)
         {
-            StatycznaBazaWszytkichDanych.GetBaza().GenerujPolfinaly(Sporty.DwaOgnie);
+            StatycznaBazaWszytkichDanych.GetBaza().GenerujPolfinaly((Sporty)Test.SelectedIndex);
+            MeczeDataGrid.Items.Refresh();
+        }
+        private void GenerujFinalyButt_Click(object sender, RoutedEventArgs e)
+        {
+            StatycznaBazaWszytkichDanych.GetBaza().GenerujFinaly(Sporty.DwaOgnie);
             MeczeDataGrid.Items.Refresh();
         }
 

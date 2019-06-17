@@ -20,7 +20,6 @@
         <ComboBox x:Name="Druzyna2Combo" Loaded ="DruzynyCombo_Loaded" HorizontalAlignment="Left" Margin="218,72,0,0" VerticalAlignment="Top" Width="120" DisplayMemberPath="Nazwa" ItemsSource="{Binding Source={StaticResource druzynaViewSource}}" SelectedValuePath="Nazwa"/>
         <TextBox x:Name="WynikDruzyna1" HorizontalAlignment="Left" Height="23" Margin="32,197,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" IsEnabled="{Binding IsChecked, ElementName=CzyRozegranyCheckBox}"/>
         <TextBox x:Name="WynikDruzyna2" HorizontalAlignment="Left" Height="23" Margin="218,197,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" IsEnabled="{Binding IsChecked, ElementName=CzyRozegranyCheckBox}"/>
-        <Button x:Name="GenerujPolfinalyButt" Content="Półfinały" HorizontalAlignment="Left" Margin="49,372,0,0" VerticalAlignment="Top" Width="75" Click="GenerujPolfinalyButt_Click"/>
         <Button x:Name="GenerujFinałyButt" Content="Finały" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Margin="218,372,0,0"/>
         <DataGrid x:Name="MeczeDataGrid" HorizontalAlignment="Left" Height="298" Margin="371,72,0,0" VerticalAlignment="Top" Width="601" ItemsSource="{Binding Source={StaticResource meczSiatkowkiViewSource}}" AutoGenerateColumns="False" VerticalContentAlignment="Center">
             <DataGrid.Columns>
@@ -33,6 +32,10 @@
             </DataGrid.Columns>
         </DataGrid>
         <CheckBox x:Name="CzyRozegranyCheckBox" Content="CheckBox" HorizontalAlignment="Left" Margin="32,136,0,0" VerticalAlignment="Top"/>
+        <GroupBox Header="Genruj" HorizontalAlignment="Left" Height="90" Margin="32,319,0,0" VerticalAlignment="Top" Width="306">
+            <ComboBox x:Name="Test" HorizontalAlignment="Left" Margin="91,0,0,0" VerticalAlignment="Top" Width="120"/>
+        </GroupBox>
+        <Button x:Name="GenerujPolfinalyButt" Content="Półfinały" HorizontalAlignment="Left" Margin="55,377,0,0" VerticalAlignment="Top" Width="75" Click="GenerujPolfinalyButt_Click"/>
 
     </Grid>
 </Window>

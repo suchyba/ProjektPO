@@ -8,11 +8,11 @@ namespace Plaza
 {
     enum Sporty
     {
-        Siatkowka, PrzeciaganieLiny, DwaOgnie
+        Siatkowka = 0, PrzeciaganieLiny = 1, DwaOgnie = 2
     }
-    /**
-     * <summary>Klasa opisująca drużyny prowadzące rozgrywki.</summary>
-     */
+    /// <summary>
+    /// 
+    /// </summary>
     class Druzyna
     {
         protected string nazwa;
@@ -27,35 +27,67 @@ namespace Plaza
 
 
 
-        /**
-         * <summary>Konstruktor przyjmujacy podstawowe dane o drużynie.</summary>
-         */
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="n"></param>
+        /// <param name="r"></param>
+        /// <param name="o"></param>
         public Druzyna(string n, int r, string o)
         {
             nazwa = n;
             rokPowstania = r;
             opis = o;
         }
-
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
         public string GetNazwa() => nazwa;
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
         public string GetOpis() => opis;
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
         public int GetRokPowstania() => rokPowstania;
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="nowyOpis"></param>
         public void AktualizujOpis(string nowyOpis)
         {
             opis = nowyOpis;
         }
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
         public int GetPunkty() => punkty;
+        /// <summary>
+        /// 
+        /// </summary>
         public void DodajZwycięztwo()
         {
             punkty += 2;
         }
+        /// <summary>
+        /// 
+        /// </summary>
         public void DodajRemis()
         {
             punkty += 1;
         }
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
         public override string ToString()
         {
-            return "Drużyna: " + nazwa;
+            return "Drużyna";
         }
     }
 }
