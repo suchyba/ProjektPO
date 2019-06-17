@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Runtime.Serialization;
 
 namespace Plaza
 {
@@ -13,7 +9,7 @@ namespace Plaza
     /// <summary>
     /// Klasa określająca drużyny
     /// </summary>
-    class Druzyna
+    class Druzyna : ISerializable
     {
         /// <summary>
         /// Cmienne wykorzystywane przy drużynie
@@ -58,6 +54,15 @@ namespace Plaza
             rokPowstania = r;
             opis = o;
         }
+
+        public Druzyna(SerializationInfo info, StreamingContext context)
+        {
+            nazwa = info.GetString("Nazwa");
+            rokPowstania = info.GetInt32("RokPowstania");
+            opis = info.GetString("Opis");
+            punkty = info.GetInt32("Punkty");
+        }
+
         /// <summary>
         /// Pobieranie nazwy drużyny
         /// </summary>
@@ -105,5 +110,13 @@ namespace Plaza
         /// </summary>
         /// <returns>zwraca "Drużyna"</returns>
         public override string ToString() => "Drużyna";
+
+        public void GetObjectData(SerializationInfo info, StreamingContext context)
+        {
+            info.AddValue("Nazwa", this.nazwa);
+            info.AddValue("Opis", this.opis);
+            info.AddValue("Punkty", this.punkty);
+            info.AddValue("RokPowstania", rokPowstania);
+        }
     }
 }

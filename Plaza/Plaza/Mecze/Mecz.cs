@@ -1,16 +1,13 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Runtime.Serialization;
 
 namespace Plaza
 {
-    enum StopienMeczu { MeczLigowy = 0, MeczPolfinalowy = 1, MeczFinalowy = 2};
+    enum StopienMeczu { MeczLigowy = 0, MeczPolfinalowy = 1, MeczFinalowy = 2 };
     /// <summary>
     /// Klasa opisująca mecze
     /// </summary>
-    class Mecz
+    class Mecz : ISerializable
     {
         /// <summary>
         /// pola potrzebne do określenia meczu
@@ -94,19 +91,25 @@ namespace Plaza
         {
             wynik[0] = w1;
             wynik[1] = w2;
-            if(stM == (int)StopienMeczu.MeczLigowy)
+            if (stM == (int)StopienMeczu.MeczLigowy)
             {
                 if (w1 > w2)
                     d1.DodajZwycięztwo();
                 else if (w2 > w1)
                     d2.DodajZwycięztwo();
-                else if(w1 == w2)
+                else if (w1 == w2)
                 {
                     d1.DodajRemis();
                     d2.DodajRemis();
                 }
             }
         }
+
+        public Mecz(SerializationInfo info, StreamingContext context)
+        {
+            
+        }
+
         /// <summary>
         /// Pobieranie drużyn
         /// </summary>
@@ -144,6 +147,15 @@ namespace Plaza
         /// </summary>
         /// <returns>zwraca stopień rozgrywanego meczu</returns>
         public int GetStopienMeczu() => stopienMeczu;
-        
+
+        public void GetObjectData(SerializationInfo info, StreamingContext context)
+        {
+            info.AddValue("Druzyna1", druzyny[0]);
+            info.AddValue("Druzyna2", druzyny[1]);
+            info.AddValue("SedziaGlowny", sedziaGlowny);
+            info.AddValue("Wynik1", wynik[0]);
+            info.AddValue("Wynik2", wynik[1]);
+            info.AddValue("Stopien", stopienMeczu);
+        }
     }
 }

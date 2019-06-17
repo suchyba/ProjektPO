@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Plaza"
         mc:Ignorable="d"
-        Title="Rozgrywki" Height="450" Width="907" Loaded="Window_Loaded">
+        Title="Rozgrywki" Height="450" Width="907" Loaded="Window_Loaded" Activated="Window_Activated">
     <Window.Resources>
         <CollectionViewSource x:Key="bazaDruzynViewSource" d:DesignSource="{d:DesignInstance {x:Type local:BazaDanych}, CreateList=True}"/>
         <CollectionViewSource x:Key="druzynaViewSource" d:DesignSource="{d:DesignInstance {x:Type local:Druzyna}, CreateList=True}"/>

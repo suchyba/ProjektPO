@@ -1,17 +1,7 @@
 ﻿using Plaza.Technologie_Testowe;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
 
 namespace Plaza.Testowe_okna
 {
@@ -83,6 +73,11 @@ namespace Plaza.Testowe_okna
         private void SedziowieDataGrid_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             UsunSedziegoButt.IsEnabled = SedziowieDataGrid.SelectedItems.Count > 0 ? true : false;
+        }
+
+        private void Window_Activated(object sender, EventArgs e)
+        {
+            SedziowieDataGrid.Items.Refresh();
         }
     }
 }
