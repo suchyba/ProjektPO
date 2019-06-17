@@ -31,8 +31,43 @@ namespace Plaza
 
         private void ZatwierdzButt_Click(object sender, RoutedEventArgs e)
         {
-            baza.ZglosDruzyne(new Druzyna(NazwaDruzynyTxtBox.Text, int.Parse(RokPowstaniaTxtBox.Text), OpisTxtBox.Text));
-            TestTxtBlock.Text = TestTxtBlock.Text + "\n" + baza.GetListaDruzyn().LastOrDefault().GetNazwa() + " " + baza.GetListaDruzyn().LastOrDefault().GetRokPowstania() + " " + baza.GetListaDruzyn().LastOrDefault().GetOpis();
+            StatycznaBazaWszytkichDanych.GetBaza().ZglosDruzyne(new DruzynaDwaOgnie(NazwaDruzynyTxtBox.Text, int.Parse(RokPowstaniaTxtBox.Text), OpisTxtBox.Text));
+            DruzynyDataGrid.Items.Refresh();
+        }
+
+        private void OdswiezButt_Click(object sender, RoutedEventArgs e)
+        {
+            DruzynyDataGrid.Items.Refresh();            
+        }
+
+        private void UsunButt_Click(object sender, RoutedEventArgs e)
+        {
+            StatycznaBazaWszytkichDanych.GetBaza().WycofajDruzyne(NazwaDruzynyTxtBox.Text);
+            DruzynyDataGrid.Items.Refresh();
+        }
+
+        private void MeczeButt_Click(object sender, RoutedEventArgs e)
+        {
+            Mecze meczeOkno = new Mecze();
+            meczeOkno.Show();
+        }
+
+        private void ZawodnicyButt_Click(object sender, RoutedEventArgs e)
+        {
+            Zawodnicy zawodnicyOkno = new Zawodnicy();
+            zawodnicyOkno.Show();
+        }
+        private void SedziowieButt_Click(object sender, RoutedEventArgs e)
+        {
+            Sedziowie sedziowieOkno = new Sedziowie();
+            sedziowieOkno.Show();
+        }
+
+        private void Window_Loaded(object sender, RoutedEventArgs e)
+        {
+            System.Windows.Data.CollectionViewSource druzynaViewSource = ((System.Windows.Data.CollectionViewSource)(this.FindResource("druzynaViewSource")));
+            // Załaduj dane poprzez ustawienie właściwości CollectionViewSource.Source:
+            // druzynaViewSource.Źródło = [ogólne źródło danych]
         }
     }
 }
