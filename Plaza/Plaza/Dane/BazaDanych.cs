@@ -35,7 +35,7 @@ namespace Plaza
                         Druzyna d1, d2;
                         d1 = listaMeczowPolfinalowych[0].GetWynik()[0] > listaMeczowPolfinalowych[0].GetWynik()[1] ? listaMeczowPolfinalowych[0].GetDruzyny()[0] : listaMeczowPolfinalowych[0].GetDruzyny()[1];
                         d2 = listaMeczowPolfinalowych[1].GetWynik()[0] > listaMeczowPolfinalowych[1].GetWynik()[1] ? listaMeczowPolfinalowych[1].GetDruzyny()[0] : listaMeczowPolfinalowych[1].GetDruzyny()[1];
-                        DodajMecz(new MeczSiatkowki(d1, d2, listaSedziow[0], (int)StopienMeczu.MeczFilalowy, listaSedziow[1], listaSedziow[2]));
+                        DodajMecz(new MeczSiatkowki(d1, d2, listaSedziow[0], (int)StopienMeczu.MeczFinalowy, listaSedziow[1], listaSedziow[2]));
                         break;
                     }
                 case Sporty.PrzeciaganieLiny:
@@ -44,7 +44,7 @@ namespace Plaza
                         Druzyna d1, d2;
                         d1 = listaMeczowPolfinalowych[0].GetWynik()[0] > listaMeczowPolfinalowych[0].GetWynik()[1] ? listaMeczowPolfinalowych[0].GetDruzyny()[0] : listaMeczowPolfinalowych[0].GetDruzyny()[1];
                         d2 = listaMeczowPolfinalowych[1].GetWynik()[0] > listaMeczowPolfinalowych[1].GetWynik()[1] ? listaMeczowPolfinalowych[1].GetDruzyny()[0] : listaMeczowPolfinalowych[1].GetDruzyny()[1];
-                        DodajMecz(new Mecz(d1, d2, listaSedziow[0], (int)StopienMeczu.MeczFilalowy));
+                        DodajMecz(new Mecz(d1, d2, listaSedziow[0], (int)StopienMeczu.MeczFinalowy));
                         break;
                     }
                 case Sporty.DwaOgnie:
@@ -53,7 +53,7 @@ namespace Plaza
                         Druzyna d1, d2;
                         d1 = listaMeczowPolfinalowych[0].GetWynik()[0] > listaMeczowPolfinalowych[0].GetWynik()[1] ? listaMeczowPolfinalowych[0].GetDruzyny()[0] : listaMeczowPolfinalowych[0].GetDruzyny()[1];
                         d2 = listaMeczowPolfinalowych[1].GetWynik()[0] > listaMeczowPolfinalowych[1].GetWynik()[1] ? listaMeczowPolfinalowych[1].GetDruzyny()[0] : listaMeczowPolfinalowych[1].GetDruzyny()[1];
-                        DodajMecz(new Mecz(d1, d2, listaSedziow[0], (int)StopienMeczu.MeczFilalowy));
+                        DodajMecz(new Mecz(d1, d2, listaSedziow[0], (int)StopienMeczu.MeczFinalowy));
                         break;
                     }
                 default:

@@ -1,23 +1,25 @@
-﻿<Window x:Class="Plaza.Testowe_okna.Sedziowie"
+﻿<Window
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Plaza.Testowe_okna"
+        xmlns:Plaza="clr-namespace:Plaza" x:Class="Plaza.Testowe_okna.Sedziowie"
         mc:Ignorable="d"
-        Title="Sedziowie" Height="450" Width="800">
+        Title="Sedziowie" Height="450" Width="800" Loaded="Window_Loaded_1">
     <Window.Resources>
         <CollectionViewSource x:Key="bazaDanychViewSource"/>
         <CollectionViewSource x:Key="statycznaBazaWszytkichDanychViewSource"/>
+        <CollectionViewSource x:Key="sedziaViewSource" d:DesignSource="{d:DesignInstance {x:Type Plaza:Sedzia}, CreateList=True}"/>
     </Window.Resources>
-    <Grid>
-        <DataGrid x:Name="SedziowieDataGrid" HorizontalAlignment="Left" Height="399" Margin="382,10,0,0" VerticalAlignment="Top" Width="400">
+    <Grid DataContext="{StaticResource sedziaViewSource}">
+        <DataGrid x:Name="SedziowieDataGrid" HorizontalAlignment="Left" Height="399" Margin="382,10,0,0" VerticalAlignment="Top" Width="400" AutoGenerateColumns="False" ItemsSource="{Binding}">
             <DataGrid.Columns>
-                <DataGridTextColumn ClipboardContentBinding="{x:Null}" Header="Imię" IsReadOnly="True"/>
-                <DataGridTextColumn ClipboardContentBinding="{x:Null}" Header="Nazwisko" IsReadOnly="True"/>
-                <DataGridTextColumn ClipboardContentBinding="{x:Null}" Header="Wiek" IsReadOnly="True"/>
-                <DataGridTextColumn ClipboardContentBinding="{x:Null}" Header="Numer Licencji" IsReadOnly="True"/>
-                <DataGridTextColumn ClipboardContentBinding="{x:Null}" Header="Liczba Meczy " IsReadOnly="True"/>
+                <DataGridTextColumn ClipboardContentBinding="{x:Null}" Header="Imię" IsReadOnly="True" Binding="{Binding Imie}"/>
+                <DataGridTextColumn ClipboardContentBinding="{x:Null}" Header="Nazwisko" IsReadOnly="True" Binding="{Binding Nazwisko}"/>
+                <DataGridTextColumn ClipboardContentBinding="{x:Null}" Header="Wiek" IsReadOnly="True" Binding="{Binding Wiek}"/>
+                <DataGridTextColumn ClipboardContentBinding="{x:Null}" Header="Numer Licencji" IsReadOnly="True" Binding="{Binding NumerLicencji}"/>
+                <DataGridTextColumn ClipboardContentBinding="{x:Null}" Header="Liczba Meczy " IsReadOnly="True" Binding="{Binding IloscSedziowanychMeczow}"/>
             </DataGrid.Columns>
         </DataGrid>
         <Button x:Name="DodajSedziegoButt" Content="Dodaj" HorizontalAlignment="Left" Margin="61,258,0,0" VerticalAlignment="Top" Width="75"/>

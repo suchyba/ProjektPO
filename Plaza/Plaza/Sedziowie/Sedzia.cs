@@ -28,5 +28,6 @@ namespace Plaza
         public int Wiek => wiek;
         public string NumerLicencji => numerLicencji;
         public int IloscSedziowanychMeczow => liczbaSedziowanychMeczow;
+        public void ZwiekszIloscMeczow() => ++liczbaSedziowanychMeczow;
     }
 }

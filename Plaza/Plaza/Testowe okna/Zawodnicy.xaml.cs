@@ -41,7 +41,7 @@ namespace Plaza.Testowe_okna
 
         private void DodajZawodnikaButt_Click(object sender, RoutedEventArgs e)
         {
-            StatycznaBazaWszytkichDanych.GetBaza().DodajZawodnika(Imie.Text, Nazwisko.Text, DataUrodzenia.Text, Druzyna.SelectedItem as Druzyna);
+            //StatycznaBazaWszytkichDanych.GetBaza().DodajZawodnika(Imie.Text, Nazwisko.Text, DataUrodzenia.Text, Druzyna.SelectedItem as Druzyna);
         }
 
         private void UsunZawodnikaButt_Click(object sender, RoutedEventArgs e)

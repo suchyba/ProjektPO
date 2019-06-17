@@ -31,5 +31,13 @@ namespace Plaza.Testowe_okna
             // Załaduj dane poprzez ustawienie właściwości CollectionViewSource.Source:
             // meczViewSource.Źródło = [ogólne źródło danych]
         }
+
+        private void Window_Loaded_1(object sender, RoutedEventArgs e)
+        {
+
+            System.Windows.Data.CollectionViewSource sedziaViewSource = ((System.Windows.Data.CollectionViewSource)(this.FindResource("sedziaViewSource")));
+            // Załaduj dane poprzez ustawienie właściwości CollectionViewSource.Source:
+            // sedziaViewSource.Źródło = [ogólne źródło danych]
+        }
     }
 }
