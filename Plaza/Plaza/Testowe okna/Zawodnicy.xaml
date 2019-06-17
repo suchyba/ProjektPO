@@ -14,7 +14,7 @@
         <CollectionViewSource x:Key="druzynaViewSource" d:DesignSource="{d:DesignInstance {x:Type Plaza:Druzyna}, CreateList=True}"/>
     </Window.Resources>
     <Grid DataContext="{StaticResource zawodnikViewSource}">
-        <DataGrid x:Name="ZawodnicyDataGrid" HorizontalAlignment="Left" Height="399" Margin="350,10,0,0" VerticalAlignment="Top" Width="432" ItemsSource="{Binding}" AutoGenerateColumns="False">
+        <DataGrid x:Name="ZawodnicyDataGrid" HorizontalAlignment="Left" Height="350" Margin="400,30,0,0" VerticalAlignment="Top" Width="350" ItemsSource="{Binding}" AutoGenerateColumns="False">
             <DataGrid.Columns>
                 <DataGridTextColumn ClipboardContentBinding="{x:Null}" Header="Imię" IsReadOnly="True" Binding="{Binding Imie}"/>
                 <DataGridTextColumn ClipboardContentBinding="{x:Null}" Header="Nazwisko" IsReadOnly="True" Binding="{Binding Nazwisko}"/>
@@ -22,12 +22,16 @@
                 <DataGridTextColumn ClipboardContentBinding="{x:Null}" Header="Drużyna" IsReadOnly="True" Binding="{Binding Druzyna.Nazwa}"/>
             </DataGrid.Columns>
         </DataGrid>
-        <Button x:Name="DodajZawodnikaButt" Content="Dodaj" HorizontalAlignment="Left" Margin="50,317,0,0" VerticalAlignment="Top" Width="75" Click="DodajZawodnikaButt_Click"/>
-        <Button x:Name="UsunZawodnikaButt" Content="Usuń" HorizontalAlignment="Left" Margin="200,317,0,0" VerticalAlignment="Top" Width="75" Click="UsunZawodnikaButt_Click"/>
-        <TextBox x:Name="Imie" HorizontalAlignment="Left" Height="23" Margin="50,50,0,0" TextWrapping="Wrap" Text="Imię" VerticalAlignment="Top" Width="120"/>
-        <TextBox x:Name="Nazwisko" HorizontalAlignment="Left" Height="23" Margin="50,100,0,0" TextWrapping="Wrap" Text="Nazwisko" VerticalAlignment="Top" Width="120"/>
-        <TextBox x:Name="DataUrodzenia" HorizontalAlignment="Left" Height="23" Margin="50,150,0,0" TextWrapping="Wrap" Text="Rok Urodzenia" VerticalAlignment="Top" Width="120"/>
-        <ComboBox x:Name="Druzyna" Loaded ="DruzynyCombo_Loaded" HorizontalAlignment="Left" Margin="200,50,0,0" VerticalAlignment="Top" Width="120" DisplayMemberPath="Nazwa" ItemsSource="{Binding Source={StaticResource druzynaViewSource}}" SelectedValuePath="Nazwa"/>
+        <Button x:Name="DodajZawodnikaButt" Content="Dodaj" HorizontalAlignment="Left" Margin="280,10,0,0" VerticalAlignment="Top" Width="75" Click="DodajZawodnikaButt_Click"/>
+        <Button x:Name="UsunZawodnikaButt" Content="Usuń" HorizontalAlignment="Left" Margin="280,35,0,0" VerticalAlignment="Top" Width="75" Click="UsunZawodnikaButt_Click"/>
+        <TextBox x:Name="Imie" HorizontalAlignment="Left" Height="23" Margin="110,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="Nazwisko" HorizontalAlignment="Left" Height="23" Margin="110,38,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="DataUrodzenia" HorizontalAlignment="Left" Height="23" Margin="110,66,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <ComboBox x:Name="Druzyna" Loaded ="DruzynyCombo_Loaded" HorizontalAlignment="Left" Margin="110,94,0,0" VerticalAlignment="Top" Width="120" DisplayMemberPath="Nazwa" ItemsSource="{Binding Source={StaticResource druzynaViewSource}}" SelectedValuePath="Nazwa"/>
+        <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="Imię:" VerticalAlignment="Top" Margin="10,15,0,0"/>
+        <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="Nazwisko:" VerticalAlignment="Top" Margin="10,45,0,0"/>
+        <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="Rok urodzenia:" VerticalAlignment="Top" Margin="10,73,0,0"/>
+        <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="Drużyna:" VerticalAlignment="Top" Margin="10,100,0,0"/>
 
     </Grid>
 </Window>
