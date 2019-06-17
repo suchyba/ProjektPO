@@ -1,4 +1,6 @@
-﻿namespace Plaza
+﻿using System.Runtime.Serialization;
+
+namespace Plaza
 {
     enum Sporty
     {
@@ -7,7 +9,7 @@
     /// <summary>
     /// Klasa określająca drużyny
     /// </summary>
-    class Druzyna
+    class Druzyna : ISerializable
     {
         protected string nazwa;
         protected int rokPowstania;
@@ -34,6 +36,15 @@
             rokPowstania = r;
             opis = o;
         }
+
+        public Druzyna(SerializationInfo info, StreamingContext context)
+        {
+            nazwa = info.GetString("Nazwa");
+            rokPowstania = info.GetInt32("RokPowstania");
+            opis = info.GetString("Opis");
+            punkty = info.GetInt32("Punkty");
+        }
+
         /// <summary>
         /// Pobieranie nazwy drużyny
         /// </summary>
@@ -81,5 +92,13 @@
         /// </summary>
         /// <returns>zwraca "Drużyna"</returns>
         public override string ToString() => "Drużyna";
+
+        public void GetObjectData(SerializationInfo info, StreamingContext context)
+        {
+            info.AddValue("Nazwa", this.nazwa);
+            info.AddValue("Opis", this.opis);
+            info.AddValue("Punkty", this.punkty);
+            info.AddValue("RokPowstania", rokPowstania);
+        }
     }
 }
