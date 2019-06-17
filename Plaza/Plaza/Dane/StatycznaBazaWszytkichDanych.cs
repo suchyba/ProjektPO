@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Plaza.Technologie_Testowe
+﻿namespace Plaza.Technologie_Testowe
 {
     /// <summary>
     /// Klasa opisująca statyczną bazę wszystkich danych

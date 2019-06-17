@@ -49,7 +49,7 @@
             <Grid HorizontalAlignment="Left" Height="86" Margin="4,-6,-2,-2" VerticalAlignment="Top" Width="323">
                 <TextBlock HorizontalAlignment="Left" Margin="10,31,0,0" TextWrapping="Wrap" Text="Wynik I drużyny" VerticalAlignment="Top"/>
                 <TextBlock HorizontalAlignment="Left" Margin="194,31,0,0" TextWrapping="Wrap" Text="Wynik II drużyny" VerticalAlignment="Top"/>
-                <TextBox x:Name="WynikDruzyna1" HorizontalAlignment="Left" Height="23" Margin="10,47,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" IsEnabled="{Binding IsChecked, ElementName=CzyRozegranyCheckBox}"/>
+                <TextBox x:Name="WynikDruzyna1" HorizontalAlignment="Left" Height="23" Margin="10,52,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" IsEnabled="{Binding IsChecked, ElementName=CzyRozegranyCheckBox}"/>
                 <TextBox x:Name="WynikDruzyna2" HorizontalAlignment="Left" Height="23" Margin="194,52,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" IsEnabled="{Binding IsChecked, ElementName=CzyRozegranyCheckBox}"/>
                 <CheckBox x:Name="CzyRozegranyCheckBox" Content="Włącz/wyłącz wpisywanie wyników" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top"/>
             </Grid>

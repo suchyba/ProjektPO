@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Plaza
+﻿namespace Plaza
 {
     /// <summary>
     /// Klasa opisująca drużynę grającą w dwa ognie

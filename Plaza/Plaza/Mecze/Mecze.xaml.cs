@@ -2,16 +2,8 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
 
 namespace Plaza.Testowe_okna
 {
@@ -92,7 +84,7 @@ namespace Plaza.Testowe_okna
                 {
                     baza.DodajMecz(new Mecz(Druzyna1Combo.SelectedItem as Druzyna, Druzyna2Combo.SelectedItem as Druzyna, SedziaGlownyCombo.SelectedItem as Sedzia, (int)StopienMeczu.MeczLigowy));
                 }
-            }            
+            }
 
             MeczeDataGrid.Items.Refresh();
             Druzyna1Combo.SelectedItem = null;
@@ -131,19 +123,19 @@ namespace Plaza.Testowe_okna
         /// <param name="e">parametr zawierający dane wydarzenia</param>
         private void Druzyna1Combo_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            if(Druzyna1Combo.SelectedItem is DruzynaDwaOgnie)
+            if (Druzyna1Combo.SelectedItem is DruzynaDwaOgnie)
             {
                 Druzyna2Combo.ItemsSource = StatycznaBazaWszytkichDanych.GetBaza().GetListaDruzyn().Where(d => d is DruzynaDwaOgnie && d != Druzyna1Combo.SelectedItem);
                 SedziaPomocniczy1Combo.IsEnabled = false;
                 SedziaPomocniczy2Combo.IsEnabled = false;
             }
-            else if(Druzyna1Combo.SelectedItem is DruzynaPrzeciaganieLiny)
+            else if (Druzyna1Combo.SelectedItem is DruzynaPrzeciaganieLiny)
             {
                 Druzyna2Combo.ItemsSource = StatycznaBazaWszytkichDanych.GetBaza().GetListaDruzyn().Where(d => d is DruzynaPrzeciaganieLiny && d != Druzyna1Combo.SelectedItem);
                 SedziaPomocniczy1Combo.IsEnabled = false;
                 SedziaPomocniczy2Combo.IsEnabled = false;
             }
-            else if(Druzyna1Combo.SelectedItem is DruzynaSiatkowka)
+            else if (Druzyna1Combo.SelectedItem is DruzynaSiatkowka)
             {
                 Druzyna2Combo.ItemsSource = StatycznaBazaWszytkichDanych.GetBaza().GetListaDruzyn().Where(d => d is DruzynaSiatkowka && d != Druzyna1Combo.SelectedItem);
                 SedziaPomocniczy1Combo.IsEnabled = true;

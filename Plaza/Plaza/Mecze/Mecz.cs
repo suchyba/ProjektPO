@@ -1,12 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Plaza
+﻿namespace Plaza
 {
-    enum StopienMeczu { MeczLigowy = 0, MeczPolfinalowy = 1, MeczFinalowy = 2};
+    enum StopienMeczu { MeczLigowy = 0, MeczPolfinalowy = 1, MeczFinalowy = 2 };
     /// <summary>
     /// Klasa opisująca mecze
     /// </summary>
@@ -91,13 +85,13 @@ namespace Plaza
         {
             wynik[0] = w1;
             wynik[1] = w2;
-            if(stM == (int)StopienMeczu.MeczLigowy)
+            if (stM == (int)StopienMeczu.MeczLigowy)
             {
                 if (w1 > w2)
                     d1.DodajZwycięztwo();
                 else if (w2 > w1)
                     d2.DodajZwycięztwo();
-                else if(w1 == w2)
+                else if (w1 == w2)
                 {
                     d1.DodajRemis();
                     d2.DodajRemis();
@@ -141,6 +135,6 @@ namespace Plaza
         /// </summary>
         /// <returns>zwraca stopień rozgrywanego meczu</returns>
         public int GetStopienMeczu() => stopienMeczu;
-        
+
     }
 }
