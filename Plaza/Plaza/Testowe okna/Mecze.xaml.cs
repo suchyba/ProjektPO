@@ -24,10 +24,6 @@ namespace Plaza.Testowe_okna
         {
             InitializeComponent();
             MeczeDataGrid.ItemsSource = StatycznaBazaWszytkichDanych.GetBaza().GetListaMeczy();
-            List<string> lista = new List<string>();
-            lista.Add("1");
-            lista.Add("2");
-            Test.ItemsSource = lista;
         }
 
         private void Window_Loaded(object sender, RoutedEventArgs e)

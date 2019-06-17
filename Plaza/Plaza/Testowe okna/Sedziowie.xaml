@@ -22,8 +22,8 @@
                 <DataGridTextColumn ClipboardContentBinding="{x:Null}" Header="Liczba Meczy " IsReadOnly="True" Binding="{Binding IloscSedziowanychMeczow}"/>
             </DataGrid.Columns>
         </DataGrid>
-        <Button x:Name="DodajSedziegoButt" Content="Dodaj" HorizontalAlignment="Left" Margin="61,258,0,0" VerticalAlignment="Top" Width="75"/>
-        <Button x:Name="UsunSedziegoButt" Content="Usuń" HorizontalAlignment="Left" Margin="239,258,0,0" VerticalAlignment="Top" Width="75"/>
+        <Button x:Name="DodajSedziegoButt" Content="Dodaj" HorizontalAlignment="Left" Margin="61,258,0,0" VerticalAlignment="Top" Width="75" Click="DodajSedziegoButt_Click"/>
+        <Button x:Name="UsunSedziegoButt" Content="Usuń" HorizontalAlignment="Left" Margin="239,258,0,0" VerticalAlignment="Top" Width="75" Click="UsunSedziegoButt_Click"/>
         <TextBox x:Name="Imie" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" Text="Imię" VerticalAlignment="Top" Width="120" Margin="10,10,0,0"/>
         <TextBox x:Name="Nazwisko" HorizontalAlignment="Left" Height="23" Margin="10,38,0,0" TextWrapping="Wrap" Text="Nazwisko" VerticalAlignment="Top" Width="120"/>
         <TextBox x:Name="Wiek" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" Text="Wiek" VerticalAlignment="Top" Width="120" Margin="10,66,0,0"/>
