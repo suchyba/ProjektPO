@@ -29,7 +29,7 @@ namespace Plaza.Testowe_okna
             MeczeDataGrid.ItemsSource = StatycznaBazaWszytkichDanych.GetBaza().GetListaMeczy();
         }
         /// <summary>
-        /// Ładowanie okna
+        /// Ładowanie danych meczu, meczu siatkówki oraz drużyny
         /// </summary>
         /// <param name="sender">parametr z  referencją do obiektu, który wywołuje wydarzenie</param>
         /// <param name="e">parametr zawierający dane wydarzenia</param>

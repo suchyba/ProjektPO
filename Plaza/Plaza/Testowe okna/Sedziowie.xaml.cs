@@ -20,18 +20,30 @@ namespace Plaza.Testowe_okna
     /// </summary>
     public partial class Sedziowie : Window
     {
+        /// <summary>
+        /// Pobieranie listy sędziów
+        /// </summary>
         public Sedziowie()
         {
             InitializeComponent();
             SedziowieDataGrid.ItemsSource = StatycznaBazaWszytkichDanych.GetBaza().GetListaSedziow();
         }
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="sender">parametr z  referencją do obiektu, który wywołuje wydarzenie</param>
+        /// <param name="e">parametr zawierający dane wydarzenia</param>
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
             System.Windows.Data.CollectionViewSource sedziaViewSource = ((System.Windows.Data.CollectionViewSource)(this.FindResource("sedziaViewSource")));
             // Załaduj dane poprzez ustawienie właściwości CollectionViewSource.Source:
             // meczViewSource.Źródło = [ogólne źródło danych]
         }
-
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="sender">parametr z  referencją do obiektu, który wywołuje wydarzenie</param>
+        /// <param name="e">parametr zawierający dane wydarzenia</param>
         private void Window_Loaded_1(object sender, RoutedEventArgs e)
         {
 
