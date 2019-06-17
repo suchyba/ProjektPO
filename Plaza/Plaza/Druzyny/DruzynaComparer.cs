@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 
 namespace Plaza
 {
+    /// <summary>
+    /// Klasa porównująca drużyny
+    /// </summary>
     class DruzynaComparer : Comparer<Druzyna>
     {
         public override int Compare(Druzyna x, Druzyna y)

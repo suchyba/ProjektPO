@@ -12,7 +12,9 @@ namespace Plaza
         List<Mecz> listaMeczy;
         List<Zawodnik> listaZawodnikow;
         List<Sedzia> listaSedziow;
-
+        /// <summary>
+        /// Baza z listami dru¿yn, meczów, zawodników, sêdziów
+        /// </summary>
         public BazaDanych()
         {
             listaDruzyn = new List<Druzyna>();
@@ -20,10 +22,25 @@ namespace Plaza
             listaZawodnikow = new List<Zawodnik>();
             listaSedziow = new List<Sedzia>();
         }
-
+        /// <summary>
+        /// Dodawanie dru¿yny
+        /// </summary>
+        /// <param name="d">parametr okreœlaj¹cy dru¿ynê</param>
         public void ZglosDruzyne(Druzyna d) => listaDruzyn.Add(d);
+        /// <summary>
+        /// Usuwanie dru¿yny
+        /// </summary>
+        /// <param name="nazwa">parametr okreœlaj¹cy nazwê dru¿yny</param>
         public void WycofajDruzyne(string nazwa) => listaDruzyn.Remove(listaDruzyn.Where(d => d.GetNazwa() == nazwa).FirstOrDefault());
+        /// <summary>
+        /// Pobieranie listy dru¿yn
+        /// </summary>
+        /// <returns>Zwraca listê dru¿yn</returns>
         public List<Druzyna> GetListaDruzyn() => listaDruzyn;
+        /// <summary>
+        /// Generowanie fina³ów
+        /// </summary>
+        /// <param name="sport">Parametr okreœlaj¹cy sport, dla którego s¹ generowane fina³y</param>
         public void GenerujFinaly(Sporty sport)
         {
             listaSedziow.Sort(new SedziaComparer());
@@ -62,9 +79,9 @@ namespace Plaza
             
         }
         /// <summary>
-        /// 
+        /// Generowanie pó³fina³ów dla sportów
         /// </summary>
-        /// <param name="sport">Sport dla którego generujemy pó³fina³y</param>
+        /// <param name="sport">Parametr okreœlaj¹cy sport, dla którego s¹ generowane pó³fina³y</param>
         public void GenerujPolfinaly(Sporty sport)
         {
             listaDruzyn.Sort(new DruzynaComparer());
@@ -121,31 +138,50 @@ namespace Plaza
             }
         }
         /// <summary>
-        /// 
+        /// Dodawanie meczu
         /// </summary>
-        /// <param name="m"></param>
+        /// <param name="m">Dodawany mecz</param>
         public void DodajMecz(Mecz m) => listaMeczy.Add(m);
         /// <summary>
-        /// 
+        /// Rozgrywanie meczu
         /// </summary>
-        /// <param name="numerMeczu"></param>
-        /// <param name="w1"></param>
-        /// <param name="w2"></param>
+        /// <param name="numerMeczu">Numer meczu</param>
+        /// <param name="w1">Wynik pierwszej dru¿yny</param>
+        /// <param name="w2">Wynik drugiej dru¿yny</param>
         public void RozegrajMecz(int numerMeczu, int w1, int w2) => listaMeczy[numerMeczu].UstawWyniki(w1, w2);
+        /// <summary>
+        /// Dodawanie sêdziego
+        /// </summary>
+        /// <param name="s">Dodawany sêdzia</param>
         public void DodajSedziego(Sedzia s) => listaSedziow.Add(s);
+        /// <summary>
+        /// Usuwanie sêdziego
+        /// </summary>
+        /// <param name="numerLicencji">parametr okreœlaj¹cy numer licencji sêdziego</param>
         public void UsunSedziego(string numerLicencji) => listaSedziow.Remove(listaSedziow.Where(s => s.NumerLicencji== numerLicencji).FirstOrDefault());
+        /// <summary>
+        /// Pobieranie listy meczy
+        /// </summary>
+        /// <returns>zwraca listê meczy</returns>
         public List<Mecz> GetListaMeczy() => listaMeczy;
         /// <summary>
-        /// 
+        /// Pobieranie listy sêdziów
         /// </summary>
-        /// <returns></returns>
+        /// <returns>zwraca listê sêdziów</returns>
         public List<Sedzia> GetListaSedziow() => listaSedziow;
+        /// <summary>
+        /// Pobiera listê zawodników
+        /// </summary>
+        /// <returns>zwraca listê zawodników</returns>
         public List<Zawodnik> GetListaZawodnikow() => listaZawodnikow;
-        public void DodajZawodnika(string imie, string nazwisko, int rokUrodzenia, Druzyna druzyna)
-        {
-            listaZawodnikow.Add(new Zawodnik(imie, nazwisko, rokUrodzenia, druzyna));
-        }
-        public void UsunZawodnika(Zawodnik zawodnik)
+        /// <summary>
+        /// Dodawanie zawodnika
+        /// </summary>
+        /// <param name="imie">imiê zawodnika</param>
+        /// <param name="nazwisko">nazwisko zawodnika</param>
+        /// <param name="dataUrodzenia">data urodzenia zawodnika</param>
+        /// <param name="druzyna">dru¿yna, do której nale¿y zawodnik</param>
+        public void DodajZawodnika(string imie, string nazwisko, DateTime dataUrodzenia, Druzyna druzyna)
         {
             listaZawodnikow.Remove(zawodnik);
         }
