@@ -20,11 +20,19 @@ namespace Plaza.Testowe_okna
     /// </summary>
     public partial class Zawodnicy : Window
     {
+        /// <summary>
+        /// Pobieranie listy zawodników
+        /// </summary>
         public Zawodnicy()
         {
             InitializeComponent();
             ZawodnicyDataGrid.ItemsSource = StatycznaBazaWszytkichDanych.GetBaza().GetListaZawodnikow();
         }
+        /// <summary>
+        /// Ładowanie danych zawodnika i drużyny
+        /// </summary>
+        /// <param name="sender">parametr z  referencją do obiektu, który wywołuje wydarzenie</param>
+        /// <param name="e">parametr zawierający dane wydarzenia</param>
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
 
@@ -33,17 +41,30 @@ namespace Plaza.Testowe_okna
             // Załaduj dane poprzez ustawienie właściwości CollectionViewSource.Source:
             // druzynaViewSource.Źródło = [ogólne źródło danych]
         }
+        /// <summary>
+        /// Pobieranie listy zawodników do comboboxa
+        /// </summary>
+        /// <param name="sender">parametr z  referencją do obiektu, który wywołuje wydarzenie</param>
+        /// <param name="e">parametr zawierający dane wydarzenia</param>
         private void DruzynyCombo_Loaded(object sender, RoutedEventArgs e)
         {
             var combo = sender as ComboBox;
             combo.ItemsSource = StatycznaBazaWszytkichDanych.GetBaza().GetListaDruzyn();
         }
-
+        /// <summary>
+        /// Przycisk odpowiedzialny za dodawanie zawodników
+        /// </summary>
+        /// <param name="sender">parametr z  referencją do obiektu, który wywołuje wydarzenie</param>
+        /// <param name="e">parametr zawierający dane wydarzenia</param>
         private void DodajZawodnikaButt_Click(object sender, RoutedEventArgs e)
         {
             //StatycznaBazaWszytkichDanych.GetBaza().DodajZawodnika(Imie.Text, Nazwisko.Text, DataUrodzenia.Text, Druzyna.SelectedItem as Druzyna);
         }
-
+        /// <summary>
+        /// Przycisk odpowiedzialny za usuwanie zawodników
+        /// </summary>
+        /// <param name="sender">parametr z  referencją do obiektu, który wywołuje wydarzenie</param>
+        /// <param name="e">parametr zawierający dane wydarzenia</param>
         private void UsunZawodnikaButt_Click(object sender, RoutedEventArgs e)
         {
 
